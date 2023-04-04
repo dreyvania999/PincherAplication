@@ -9,7 +9,7 @@ namespace PincherApp
         private readonly double screenWidth;
         private readonly double screenHeight;
 
-
+        //Только для теста
         private readonly List<InformItem> informItems;
         public MainPage()
         {
@@ -24,6 +24,7 @@ namespace PincherApp
 
             LowerManagers.MaximumHeightRequest = screenHeight / 6;
             UpperManagers.MaximumHeightRequest = screenHeight / 6;
+            //Только для теста
             informItems=InformPageModel.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A1:C");
             screenWidth = displayInfo.Width;
         }
