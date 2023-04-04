@@ -46,7 +46,9 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-
+	<ItemGroup>
+		<None Remove="Resources\Raw\pinchertestproject.json" />
+	</ItemGroup>
 	<ItemGroup>
 	  <MauiImage Remove="Resources\Images\screenshot_1.png" />
 	  <MauiImage Remove="Resources\Images\screenshot_2.png" />
@@ -63,9 +65,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Google.Apis.Sheets.v4" Version="1.60.0.2979" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Google.Apis.Auth" Version="1.60.0" />
+		<PackageReference Include="Google.Apis.Sheets.v4" Version="1.60.0.2979" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 	  <MauiXaml Update="Page\InformPage.xaml">

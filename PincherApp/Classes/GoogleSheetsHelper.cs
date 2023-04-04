@@ -30,13 +30,15 @@ namespace PincherApp.Classes
         private GoogleCredential GetCredentialsFromFile()
         {
             GoogleCredential credential;
-            using (FileStream stream = new("pinchertestproject.json", FileMode.Open, FileAccess.Read))
+
+            using (Stream stream =  FileSystem.OpenAppPackageFileAsync("pinchertestproject.json").Result)
             {
                 credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
             }
 
             return credential;
         }
+
 
         public IList<IList<object>> GetSpreadsheetValues(string spreadsheetId, string range)
         {
@@ -48,5 +50,6 @@ namespace PincherApp.Classes
 
             return values;
         }
+
     }
 }

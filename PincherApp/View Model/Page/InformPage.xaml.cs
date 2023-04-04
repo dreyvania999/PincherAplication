@@ -1,13 +1,24 @@
 using PincherApp.Classes;
+using PincherApp.View_Model.Model;
 
 namespace PincherApp;
 
 public partial class InformPage : ContentPage
 {
-    private readonly List<InformItem> informItems;
-    
+    InformPageModel informPageModelmodel;
     public InformPage()
     {
+        informPageModelmodel = new InformPageModel();
         InitializeComponent();
+        ListElement.ItemsSource = informPageModelmodel.InformItems;
+    }
+
+    private void ListElement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem is InformItem item)
+        {
+            item.IsActivate = !item.IsActivate; // мен€ем значение свойства IsActivate
+            ((ListView)sender).SelectedItem = null; // снимаем выделение
+        }
     }
 }

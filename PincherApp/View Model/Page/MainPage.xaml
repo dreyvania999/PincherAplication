@@ -16,7 +16,7 @@
                 <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40" WidthRequest="200" ValueChanged="LowerManagerSlider_ValueChanged"   />
                 <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand"  />
                 <Button x:Name="AgreeButton" Text="Подтвердить" HorizontalOptions="CenterAndExpand" Clicked="AgreeButton_Clicked" />
-                <Button x:Name="NextButton" Text="Далее" IsVisible="False" HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="NextButton" Text="Далее" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="NextButton_Clicked" />
             </StackLayout>
         </StackLayout>
     </ScrollView>
