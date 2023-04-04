@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pinchertestproject",
+  "private_key_id": "7305d2e3e6257d029e2375f65fc3d94952ddf2d5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQC5ajp8dynZEvAb\nHqiKKOGY/is/AbRjzEhq+fMlrL1Ncd7q2H0eoMpbS5xiXx1jj4AOvLtHxADSAyBc\n/WYGhMMnapy2/ZAaqEg3sfeFJJoC6Xwq7vuIjLvmJBG+tBk/glvxxGdLjsxGRk3/\n97/xc10cLo33U6fjrMxupFshdlUYlVNZpN2bBGKlLwOf784k+vmozYm2/VBPUM7Y\naH/RUqGbUN1BnK99DvlVRWFBLNZIzWGKQLWuh6mFqOKavZ1uXWsW5O9nPCNS8Zj8\nveaQGBv3FEqPWOqXttbTyfl1TP/35s3NWsKa62mGhSPqoLRpbz46twTPtMkQOxlk\nrd2pSq51AgMBAAECggEAAIxTmXAZv9JKQu5DhcsKpbLkqlZFNAFT2nscMKmS0rKK\nO+wBbLCBgKUX1IOe+N8g/AorTJJEBVrsgtHd9hl44ToztefIgAes1PtR9cMOsIED\ntLXJqRTvbkX/hm6OX41xW6TewE6vBGsrSl0vZFWYuh9aHJfS+H2XiiEywsXQiRbQ\noykcPAnXPxcbB7Yw191TBDXPKm0TgoKEHY97kl/7bW8Wzhsrd5IHsWJiesXr4G9v\nthYhi0TPjBHDVJAfzw0xj74SS32WU7JIZD4sN0fNIvpEa23nkGOfEZjSFmrVdwuM\nqKDurebgF98y6cZ1wh1WaKmOG9HBw6pjTTAH7jSrqQKBgQDeoFMZu0MzWYila3ZD\nlZ53RQCKFEbexHNU48kpxXkAPfIakaThSuNpA+H2IHFstEi2QG0xxaiOScp3XSsI\n2oIz42P0KDBA8hWX/kXg5HSWYoqQR6ERD3gFvCTTgMfMazbI0uxynZ12I2PSXAWq\n7JH4ovAlXJ4U3I0AV6JmkVJRCQKBgQDVNdqoQsB6Xqx8LOpwZDK3MicCoL3Lm1jZ\n+nBBbJA6vsse63WPxyZCziXT9kBVnqzGWD0LzfobD9s/iZtWkzFHzUIruMLLNhpR\njxCvhKNNDo3TyRtJH55V7ITc+EH4lO0wrQPfPPwJhcIjrSmxMWyZ00hU4UOEaFSf\nuQiqpDlJDQJ/Ub6MxOX9xt0ZT6QlyKsnhKPRjuHjI+j+cC0zsCLSS0RzoU3ZPOBC\noEzMq5M+EqwgBsuhTKVHPvfZX/rV0mppZKQaD4yyKya4xxaWkf1Q0edc+Z1ThvAn\nIfPzkbW3p1e2xgasy2kUaEyWWqdvbVNwRduOUimv4fkZzQZgm0jA8QKBgQCrzyDr\nVBccxOvDiMJGXUfM/joXUQaAayeXR8trvRsga5zsxprOiJGZZdtvydEf7aSWlIZk\n28++PPHVaoLlqekdThcTemhmLqvYqyur9HtPXfoF/tng+/ywis6p7dfjg8b64YDs\nRI1o8wN1klW1dvlnn6160KeCrDv9FbMZJwsOhQKBgFwRnBvi/kH9cxY8rLo9XJF3\nVxtlwg4o8BUovvcgXUGB+uDwdyZlAH1JQLyKW694boLBM2xjNQh9BouVu+hF7HlG\nnYaGQoO6gwGJ3o3mIQrJXNDqxshN8EMszqohPfdY+0y3w4GuuQJ9OMH2yL+1YSUw\n9rX/YMHJrBw1a8bq5YRi\n-----END PRIVATE KEY-----\n",
+  "client_email": "pincherapp@pinchertestproject.iam.gserviceaccount.com",
+  "client_id": "109245568444559831859",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pincherapp%40pinchertestproject.iam.gserviceaccount.com"
+}

@@ -1,14 +1,31 @@
-﻿namespace PincherApp
+﻿using PincherApp.Classes;
+using PincherApp.View_Model.Model;
+
+namespace PincherApp
 {
     public partial class MainPage : ContentPage
     {
         private readonly MainPageModel _model;
+        private readonly double screenWidth;
+        private readonly double screenHeight;
 
+
+        private readonly List<InformItem> informItems;
         public MainPage()
         {
             InitializeComponent();
             _model = new MainPageModel();
             BindingContext = _model;
+            DisplayInfo displayInfo = DeviceDisplay.MainDisplayInfo;
+            screenWidth = displayInfo.Width;
+            screenHeight = displayInfo.Height;
+            LowerManagers.WidthRequest = screenWidth;
+            UpperManagers.WidthRequest = screenWidth;
+
+            LowerManagers.MaximumHeightRequest = screenHeight / 6;
+            UpperManagers.MaximumHeightRequest = screenHeight / 6;
+            informItems=InformPageModel.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A1:C");
+            screenWidth = displayInfo.Width;
         }
 
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -36,7 +53,9 @@
                 {
                     Source = ImageSource.FromResource(_model.PathToLowerManagersPhoto),
                     WidthRequest = _model.SizeLowerManagers,
-                    HeightRequest = _model.SizeLowerManagers
+                    HeightRequest = _model.SizeLowerManagers,
+                    Aspect = Aspect.AspectFill,
+                    Margin = new Thickness(5)
                 };
 
                 LowerManagers.Children.Add(img);
@@ -48,7 +67,9 @@
                 {
                     Source = ImageSource.FromResource(_model.PathToUpperManagersPhoto),
                     WidthRequest = _model.SizeUpperManagers,
-                    HeightRequest = _model.SizeUpperManagers
+                    HeightRequest = _model.SizeUpperManagers,
+                    Aspect = Aspect.AspectFill,
+                    Margin = new Thickness(5)
                 };
 
                 UpperManagers.Children.Add(img);

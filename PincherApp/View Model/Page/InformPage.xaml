@@ -24,13 +24,15 @@
                         <StackLayout>
                             <!-- Заголовок элемента списка -->
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" />
-                                <Image Source="{Binding IsExpanded, Converter={StaticResource ExpandIconConverter}}" />
-                            </StackLayout>
+                                <Image Source="{Binding PhotoPath}" />
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" />
+                                <!-- Развернутое содержимое элемента списка -->
+                                    <StackLayout IsVisible="{Binding IsActivate}">
+                                        <Label Text="{Binding Description}" FontSize="16" />
+                                    </StackLayout>
+                                </StackLayout>
 
-                            <!-- Развернутое содержимое элемента списка -->
-                            <StackLayout IsVisible="{Binding IsExpanded}">
-                                <Label Text="{Binding Description}" FontSize="16" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

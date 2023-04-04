@@ -1,15 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PincherApp.MainPage">
     <ScrollView>
         <StackLayout Orientation="Vertical">
-            <StackLayout x:Name="UpperManagers" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" MinimumHeightRequest="150">
+            <FlexLayout x:Name="UpperManagers" Direction="Row" Wrap="Wrap" JustifyContent="Center" AlignContent="Center" MinimumHeightRequest="150" >
                 <!-- Картинки руководителей отдела продаж выводятся здесь -->
-            </StackLayout>
-            <StackLayout x:Name="LowerManagers" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" MinimumHeightRequest="150">
+            </FlexLayout>
+            <FlexLayout x:Name="LowerManagers" Direction="Row" Wrap="Wrap" JustifyContent="Center" AlignContent="Center" MinimumHeightRequest="150">
                 <!-- Картинки менеджеров отдела продаж выводятся здесь -->
-            </StackLayout>
+            </FlexLayout>
             <StackLayout Margin="10,0,0,0" Orientation="Vertical" >
                 <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center"  />
                 <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" WidthRequest="200" ValueChanged="UpperManagerSlider_ValueChanged"/>
