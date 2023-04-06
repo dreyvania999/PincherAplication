@@ -1,11 +1,16 @@
-﻿using System.ComponentModel;
+﻿using PincherApp.Classes;
+using System.ComponentModel;
 
 namespace PincherApp
 {
     public class MainPageModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        //Проверка оптимизации
         private bool _optimization = false;
         public bool Optimization
         {
@@ -19,83 +24,75 @@ namespace PincherApp
                 }
             }
         }
-
-        private int _countUpperManagers;
-        private double _sizeUpperManagers;
-        public string PathToUpperManagersPhoto { get; } = "PincherApp.Resources.Images.screenshot_1.png";
-
-        public int CountUpperManagers
+        private void UpdateOptimization()
         {
-            get => _countUpperManagers;
-            set
-            {
-                if (_countUpperManagers != value)
-                {
-                    _countUpperManagers = value;
-                    OnPropertyChanged(nameof(CountUpperManagers));
-                    UpdateOptimization();
-                }
-            }
+            Optimization = UpperManager.Count != 0 && (LowerManager.Count / UpperManager.Count) > 5;
         }
-        public double SizeUpperManagers
+        private readonly double screenWidth;
+        private readonly double screenHeight;
+        internal ManagerInorm LowerManager;
+        internal ManagerInorm UpperManager;
+
+        public MainPageModel(double screenHeight, double screenWidth)
         {
-            get => _sizeUpperManagers;
-            set
-            {
-                if (_sizeUpperManagers != value)
-                {
-                    _sizeUpperManagers = value;
-                    OnPropertyChanged(nameof(SizeUpperManagers));
-                }
-            }
+            this.screenHeight = screenHeight/6;
+            this.screenWidth = screenWidth;
+            LowerManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_1.png");
+            UpperManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_2.png");
         }
 
-        private int _countLowerManagers;
-        private double _sizeLowerManagers;
-
-        public string PathToLowerManagersPhoto { get; } = "PincherApp.Resources.Images.screenshot_2.png";
         public int CountLowerManagers
         {
-            get => _countLowerManagers;
+            get => LowerManager.Count;
             set
             {
-                if (_countLowerManagers != value)
+                if (LowerManager.Count != value)
                 {
-                    _countLowerManagers = value;
+                    LowerManager.Count = value;
+                    if (screenHeight <= screenWidth / value)
+                    {
+                        LowerManager.Width = screenHeight;
+                        LowerManager.Height = screenHeight;
+                    }
+                    else
+                    {
+                        LowerManager.Width = screenWidth / value;
+                        LowerManager.Height = screenHeight;//переписать размер(скорее всего не подойдет)
+                    }
+                   
                     OnPropertyChanged(nameof(CountLowerManagers));
                     UpdateOptimization();
                 }
             }
         }
-        public double SizeLowerManagers
+
+        public int CountUpperManagers
         {
-            get => _sizeLowerManagers;
+            get => UpperManager.Count;
             set
             {
-                if (_sizeLowerManagers != value)
+                if (UpperManager.Count != value)
                 {
-                    _sizeLowerManagers = value;
-                    OnPropertyChanged(nameof(SizeLowerManagers));
+                    UpperManager.Count = value;
+                    if (screenHeight <= screenWidth / value)
+                    {
+                        UpperManager.Width = screenHeight;
+                        UpperManager.Height = screenHeight;
+                    }
+                    else
+                    {
+                        UpperManager.Width = screenWidth / value;
+                        UpperManager.Height = screenHeight;//переписать размер(скорее всего не подойдет)
+                    }
+
+                    OnPropertyChanged(nameof(CountUpperManagers));
+                    UpdateOptimization();
                 }
             }
         }
 
-        private void UpdateOptimization()
-        {
-            if (_countUpperManagers != 0)
-            {
-                bool isOptimized = (_countLowerManagers / _countUpperManagers) > 5;
-                Optimization = isOptimized;
-            }
-            else
-            {
-                Optimization = false;
-            }
-        }
+        
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }

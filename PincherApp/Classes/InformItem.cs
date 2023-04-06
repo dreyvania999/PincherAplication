@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel;
 
-namespace PincherApp.Classes
+namespace PincherApp
 {
-    internal class InformItem : INotifyPropertyChanged
+    public class InformItem : INotifyPropertyChanged
     {
-        private bool _isActivate;
+        private bool _isActivate = false;
+
         public InformItem(string PhotoPath, string Title, string Description)
         {
             this.Description = Description;
@@ -13,19 +14,17 @@ namespace PincherApp.Classes
         }
 
         public string Description { get; set; }
-        public string Title { get; set  ; }
+        public string Title { get; set; }
         public string PhotoPath { get; set; }
-        public bool IsActivate  
-        { 
-            get 
-            { 
-                return this._isActivate;
-            }
-            set {
-            this._isActivate = value;
+        public bool IsActivate
+        {
+            get => _isActivate;
+            set
+            {
+                _isActivate = value;
                 OnPropertyChanged(nameof(IsActivate));
             }
-        } 
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

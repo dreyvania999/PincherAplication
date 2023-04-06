@@ -1,10 +1,16 @@
-﻿using PincherApp.Classes;
+﻿using PincherApp;
 
 namespace PincherApp.View_Model.Model
 {
     internal class InformPageModel
     {
-        internal List<InformItem> InformItems { get; } = GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A1:C");
+        public double currentSize;
+        public InformPageModel() 
+        {
+            DisplayInfo displayInfo = DeviceDisplay.MainDisplayInfo;
+            currentSize = displayInfo.Width;
+        }
+        internal List<InformItem> InformItems { get; } = GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A2:C");
 
         public static List<InformItem> MapFromRangeData(IList<IList<object>> values)
         {

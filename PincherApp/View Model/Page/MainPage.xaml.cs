@@ -1,4 +1,4 @@
-﻿using System.Security.AccessControl;
+﻿using PincherApp.Classes;
 
 namespace PincherApp
 {
@@ -12,65 +12,52 @@ namespace PincherApp
         public MainPage()
         {
             InitializeComponent();
-            _model = new MainPageModel();
-            BindingContext = _model;
+            
             DisplayInfo displayInfo = DeviceDisplay.MainDisplayInfo;
             screenWidth = displayInfo.Width;
             screenHeight = displayInfo.Height;
-            LowerManagers.WidthRequest = screenWidth;
-            UpperManagers.WidthRequest = screenWidth;
+            
+            LowerManagers.MaximumWidthRequest = screenWidth;
+            UpperManagers.MaximumWidthRequest = screenWidth;
+            LowerManagers.WidthRequest = screenWidth-1;
+            UpperManagers.WidthRequest = screenWidth-1;
 
+            LowerManagers.HeightRequest = screenHeight / 6;
+            UpperManagers.HeightRequest = screenHeight / 6;
             LowerManagers.MaximumHeightRequest = screenHeight / 6;
             UpperManagers.MaximumHeightRequest = screenHeight / 6;
 
-
+            _model = new MainPageModel(screenHeight, screenWidth);
+            BindingContext = _model;
         }
 
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
-            _model.SizeLowerManagers = LowerManagers.WidthRequest / _model.CountLowerManagers;
-            SetPhoto();
+            SetPhoto(LowerManagers, _model.LowerManager);
         }
 
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.CountUpperManagers = (int)Math.Round(e.NewValue);
-            _model.SizeUpperManagers = UpperManagers.WidthRequest / _model.CountUpperManagers;
-            SetPhoto();
+            _model.CountUpperManagers = (int)Math.Round(e.NewValue);          
+            SetPhoto(UpperManagers,_model.UpperManager);
         }
 
-        private void SetPhoto()
+        private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
         {
-            UpperManagers.Children.Clear();
-            LowerManagers.Children.Clear();
-
-            for (int i = 0; i < _model.CountLowerManagers; i++)
+            managerLayout.Children.Clear();
+            double imageSize = (screenWidth - (manager.Count * 5)) / manager.Count; // вычисляем размер изображения в соотношении с количеством изображений и шириной экрана
+            for (int i = 0; i < manager.Count; i++)
             {
                 Image img = new()
                 {
-                    Source = ImageSource.FromResource(_model.PathToLowerManagersPhoto),
-                    WidthRequest = _model.SizeLowerManagers,
-                    HeightRequest = _model.SizeLowerManagers,
-                    Aspect = Aspect.AspectFill,
-                    Margin = new Thickness(5)
+                    Source = ImageSource.FromResource(manager.PathToPhoto),
+                    WidthRequest = imageSize,
+                    HeightRequest = managerLayout.HeightRequest - 10, // устанавливаем высоту изображения, учитывая Margin
+                    Margin = new Thickness(5, 0, 0, 0) // устанавливаем Margin, чтобы изображения не налезали друг на друга
                 };
 
-                LowerManagers.Children.Add(img);
-            }
-
-            for (int i = 0; i < _model.CountUpperManagers; i++)
-            {
-                Image img = new()
-                {
-                    Source = ImageSource.FromResource(_model.PathToUpperManagersPhoto),
-                    WidthRequest = _model.SizeUpperManagers,
-                    HeightRequest = _model.SizeUpperManagers,
-                    Aspect = Aspect.AspectFill,
-                    Margin = new Thickness(5)
-                };
-
-                UpperManagers.Children.Add(img);
+                managerLayout.Children.Add(img);
             }
         }
 
@@ -82,7 +69,7 @@ namespace PincherApp
 
         private void NextButton_Clicked(object sender, EventArgs e)
         {
-             Navigation.PushAsync(new InformPage());
+            _ = Navigation.PushAsync(new InformPage());
         }
     }
 }

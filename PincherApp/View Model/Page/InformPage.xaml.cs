@@ -1,11 +1,11 @@
-using PincherApp.Classes;
+using PincherApp;
 using PincherApp.View_Model.Model;
 
 namespace PincherApp;
 
 public partial class InformPage : ContentPage
 {
-    InformPageModel informPageModelmodel;
+    private readonly InformPageModel informPageModelmodel;
     public InformPage()
     {
         informPageModelmodel = new InformPageModel();
@@ -21,4 +21,5 @@ public partial class InformPage : ContentPage
             ((ListView)sender).SelectedItem = null; // снимаем выделение
         }
     }
+
 }

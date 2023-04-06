@@ -24,7 +24,7 @@
                         <StackLayout >
                             <!-- Заголовок элемента списка -->
                             <StackLayout Orientation="Horizontal" >
-                                <Image Source="{Binding PhotoPath}" MaximumHeightRequest="50"  MaximumWidthRequest="50" />
+                                <Image Source="{Binding PhotoPath}" MaximumHeightRequest="150"  MaximumWidthRequest="150" />
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" />
                                     <!-- Развернутое содержимое элемента списка -->

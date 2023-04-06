@@ -3,7 +3,7 @@ using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 
-namespace PincherApp.Classes
+namespace PincherApp
 {
     public class GoogleSheetsHelper
     {
@@ -31,7 +31,7 @@ namespace PincherApp.Classes
         {
             GoogleCredential credential;
 
-            using (Stream stream =  FileSystem.OpenAppPackageFileAsync("pinchertestproject.json").Result)
+            using (Stream stream = FileSystem.OpenAppPackageFileAsync("pinchertestproject.json").Result)
             {
                 credential = GoogleCredential.FromStream(stream).CreateScoped(Scopes);
             }

@@ -3,12 +3,12 @@
              x:Class="PincherApp.MainPage">
     <ScrollView>
         <StackLayout Orientation="Vertical">
-            <FlexLayout x:Name="UpperManagers" Direction="Row" Wrap="Wrap" JustifyContent="Center" AlignContent="Center" MinimumHeightRequest="150" >
+            <StackLayout x:Name="UpperManagers" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Spacing="1">
                 <!-- Картинки руководителей отдела продаж выводятся здесь -->
-            </FlexLayout>
-            <FlexLayout x:Name="LowerManagers" Direction="Row" Wrap="Wrap" JustifyContent="Center" AlignContent="Center" MinimumHeightRequest="150">
+            </StackLayout>
+            <StackLayout x:Name="LowerManagers" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="1">
                 <!-- Картинки менеджеров отдела продаж выводятся здесь -->
-            </FlexLayout>
+            </StackLayout>
             <StackLayout Margin="10,0,0,0" Orientation="Vertical" >
                 <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center"  />
                 <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" WidthRequest="200" ValueChanged="UpperManagerSlider_ValueChanged"/>
