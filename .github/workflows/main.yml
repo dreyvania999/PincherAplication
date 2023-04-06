@@ -18,9 +18,9 @@ jobs:
 
     env:
       Solution_Name: PincherAplication.sln
-      Test_Project_Path: UnitTestProject/UnitTestProject.csproj
+      Test_Project_Path: D:\a\PincherAplication\PincherAplication\UnitTestProject\UnitTestProject.csproj
       Wap_Project_Directory: PincherAplication/PincherAplication
-      Wap_Project_Path: PincherAplication/PincherAplication/PincherAplication.csproj
+      Wap_Project_Path: D:\a\PincherAplication\PincherAplication/PincherAplication.csproj
 
     steps:
       - name: Checkout
