@@ -1,5 +1,4 @@
 name: .NET MAUI
-
 on:
   push:
     branches:
@@ -11,11 +10,10 @@ on:
 jobs:
   build-and-test:
     runs-on: windows-latest
-
     strategy:
       matrix:
+        os: [windows-latest]
         configuration: [Debug, Release]
-
     env:
       Solution_Name: PincherAplication.sln
       Test_Project_Path: UnitTestProject/UnitTestProject.csproj
@@ -38,17 +36,18 @@ jobs:
         run: dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} && dotnet test ${{ env.Test_Project_Path }} --configuration ${{ matrix.configuration }}
 
       - name: Create app package
-        if: matrix.configuration == 'Release'
-        run: msbuild ${{ env.Wap_Project_Path }} /t:restore;build /p:Configuration=Release;AppxBundle=Always;AppxBundlePlatforms="x86|x64|arm|arm64";UapAppxPackageBuildMode=StoreUpload;PackageCertificateKeyFile="$env:SIGNING_CERTIFICATE_FILE";PackageCertificateThumbprint="$env:SIGNING_CERTIFICATE_THUMBPRINT";PackageCertificatePassword="$env:SIGNING_CERTIFICATE_PASSWORD"
+        if: matrix.configuration == 'Release' && matrix.os == 'windows-latest'
+        run: |
+          msbuild ${{ env.Wap_Project_Path }} /t:restore;build /p:Configuration=Release;AppxBundle=Always;AppxBundlePlatforms="x86|x64|arm|arm64";UapAppxPackageBuildMode=StoreUpload;PackageCertificateKeyFile="$env:SIGNING_CERTIFICATE_FILE";PackageCertificateThumbprint="$env:SIGNING_CERTIFICATE_THUMBPRINT";PackageCertificatePassword="$env:SIGNING_CERTIFICATE_PASSWORD"
 
       - name: Sign app package
-        if: matrix.configuration == 'Release'
-        run: Set-Content -Path Cert.pfx -Encoding Byte -Value ${{ secrets.PFX_CERT }}
-      - run: |
-          & "${{ github.workspace }}/SignTool.exe" sign /fd SHA256 /a /f Cert.pfx /p "${{ secrets.PFX_PASSWORD }}" ${{ env.Wap_Project_Directory }}\bin\Release\PincherApp_*.appxbundle
+        if: matrix.configuration == 'Release' && matrix.os == 'windows-latest'
+        run: |
+          Set-Content -Path Cert.pfx -Encoding Byte -Value ${{ secrets.PFX_CERT }}
+          & "${{ github.workspace }}/SignTool.exe" sign /fd SHA256 /a /f Cert.pfx /p "${{ secrets.PFX_PASSWORD }}" ${{ env.Wap_Project_Directory }}/bin/Release/PincherApp_*.appxbundle
 
       - name: Upload app package
-        if: matrix.configuration == 'Release'
+        if: matrix.configuration == 'Release' && matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v2
         with:
           name: app-package
