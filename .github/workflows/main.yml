@@ -1,0 +1,55 @@
+name: .NET MAUI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    env:
+      Solution_Name: PincherAplication.sln
+      Test_Project_Path: UnitTestProject/UnitTestProject.csproj
+      Wap_Project_Directory: PincherAplication/PincherAplication
+      Wap_Project_Path: PincherAplication/PincherAplication/PincherAplication.csproj
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.100-preview.7.21379.14'
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build and test
+        run: dotnet build ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} && dotnet test ${{ env.Test_Project_Path }} --configuration ${{ matrix.configuration }}
+
+      - name: Create app package
+        if: matrix.configuration == 'Release'
+        run: msbuild ${{ env.Wap_Project_Path }} /t:restore;build /p:Configuration=Release;AppxBundle=Always;AppxBundlePlatforms="x86|x64|arm|arm64";UapAppxPackageBuildMode=StoreUpload;PackageCertificateKeyFile="$env:SIGNING_CERTIFICATE_FILE";PackageCertificateThumbprint="$env:SIGNING_CERTIFICATE_THUMBPRINT";PackageCertificatePassword="$env:SIGNING_CERTIFICATE_PASSWORD"
+
+      - name: Sign app package
+        if: matrix.configuration == 'Release'
+        run: Set-Content -Path Cert.pfx -Encoding Byte -Value ${{ secrets.PFX_CERT }}
+      - run: |
+          & "${{ github.workspace }}/SignTool.exe" sign /fd SHA256 /a /f Cert.pfx /p "${{ secrets.PFX_PASSWORD }}" ${{ env.Wap_Project_Directory }}\bin\Release\PincherApp_*.appxbundle
+
+      - name: Upload app package
+        if: matrix.configuration == 'Release'
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-package
+          path: ${{ env.Wap_Project_Directory }}/bin/Release/*.appxbundle
