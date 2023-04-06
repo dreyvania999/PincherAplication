@@ -46,16 +46,18 @@ namespace PincherApp
         private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
         {
             managerLayout.Children.Clear();
-            double imageSize = (screenWidth - (manager.Count * 5)) / manager.Count; // вычисляем размер изображения в соотношении с количеством изображений и шириной экрана
             for (int i = 0; i < manager.Count; i++)
             {
-                Image img = new()
+                Image img = new ()
                 {
                     Source = ImageSource.FromResource(manager.PathToPhoto),
-                    WidthRequest = imageSize,
-                    HeightRequest = managerLayout.HeightRequest - 10, // устанавливаем высоту изображения, учитывая Margin
-                    Margin = new Thickness(5, 0, 0, 0) // устанавливаем Margin, чтобы изображения не налезали друг на друга
+                    WidthRequest = manager.Width,
+                    HeightRequest = manager.Height,
+                    Margin = 5,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.CenterAndExpand
                 };
+
 
                 managerLayout.Children.Add(img);
             }
