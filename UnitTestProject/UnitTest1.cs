@@ -1,8 +1,3 @@
-using Google.Apis.Auth.OAuth2.Requests;
-using Google.Apis.Sheets.v4.Data;
-using PincherApp;
-using System;
-
 namespace UnitTestProject
 {
     public class UnitTest1
@@ -12,7 +7,7 @@ namespace UnitTestProject
         public void InitializeInformItem()
         {
 
-            Assert.NotNull(new InformItem("3","2","1"));
+            Assert.NotNull(new InformItem("3", "2", "1"));
         }
 
 
@@ -21,9 +16,9 @@ namespace UnitTestProject
         {
             //получаю путь к текущей дирректории и разбиваю его 
             string[] strings = Directory.GetCurrentDirectory().Split('\\');
-            string filePath="";
+            string filePath = "";
             //—оставл€ю путь к файлу
-            for (int i = 0; i < strings.Length-5; i++)
+            for (int i = 0; i < strings.Length - 5; i++)
             {
                 filePath += strings[i] + "\\";
             }

@@ -1,15 +1,8 @@
-﻿using PincherApp.Classes;
-using System.ComponentModel;
-
-namespace PincherApp
+﻿namespace PincherApp
 {
-    public class MainPageModel : INotifyPropertyChanged
+    public class MainPageModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private PropertyChanger _propertyChanger = new PropertyChanger();
         //Проверка оптимизации
         private bool _optimization = false;
         public bool Optimization
@@ -20,7 +13,7 @@ namespace PincherApp
                 if (_optimization != value)
                 {
                     _optimization = value;
-                    OnPropertyChanged(nameof(Optimization));
+                    _propertyChanger.OnPropertyChanged(nameof(Optimization));
                 }
             }
         }
@@ -35,7 +28,7 @@ namespace PincherApp
 
         public MainPageModel(double screenHeight, double screenWidth)
         {
-            this.screenHeight = screenHeight/6;
+            this.screenHeight = screenHeight / 6;
             this.screenWidth = screenWidth;
             LowerManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_1.png");
             UpperManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_2.png");
@@ -59,8 +52,8 @@ namespace PincherApp
                         LowerManager.Width = screenWidth / value;
                         LowerManager.Height = screenHeight;//переписать размер(скорее всего не подойдет)
                     }
-                   
-                    OnPropertyChanged(nameof(CountLowerManagers));
+
+                    _propertyChanger.OnPropertyChanged(nameof(CountLowerManagers));
                     UpdateOptimization();
                 }
             }
@@ -85,13 +78,13 @@ namespace PincherApp
                         UpperManager.Height = screenHeight;//переписать размер(скорее всего не подойдет)
                     }
 
-                    OnPropertyChanged(nameof(CountUpperManagers));
+                    _propertyChanger.OnPropertyChanged(nameof(CountUpperManagers));
                     UpdateOptimization();
                 }
             }
         }
 
-        
+
 
 
     }

@@ -1,6 +1,4 @@
-﻿using PincherApp.Classes;
-
-namespace PincherApp
+﻿namespace PincherApp
 {
     public partial class MainPage : ContentPage
     {
@@ -12,15 +10,15 @@ namespace PincherApp
         public MainPage()
         {
             InitializeComponent();
-            
+
             DisplayInfo displayInfo = DeviceDisplay.MainDisplayInfo;
             screenWidth = displayInfo.Width;
             screenHeight = displayInfo.Height;
-            
+
             LowerManagers.MaximumWidthRequest = screenWidth;
             UpperManagers.MaximumWidthRequest = screenWidth;
-            LowerManagers.WidthRequest = screenWidth-1;
-            UpperManagers.WidthRequest = screenWidth-1;
+            LowerManagers.WidthRequest = screenWidth - 1;
+            UpperManagers.WidthRequest = screenWidth - 1;
 
             LowerManagers.HeightRequest = screenHeight / 6;
             UpperManagers.HeightRequest = screenHeight / 6;
@@ -31,24 +29,27 @@ namespace PincherApp
             BindingContext = _model;
         }
 
+        [Obsolete]
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
 
+        [Obsolete]
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.CountUpperManagers = (int)Math.Round(e.NewValue);          
-            SetPhoto(UpperManagers,_model.UpperManager);
+            _model.CountUpperManagers = (int)Math.Round(e.NewValue);
+            SetPhoto(UpperManagers, _model.UpperManager);
         }
 
+        [Obsolete]
         private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
         {
             managerLayout.Children.Clear();
             for (int i = 0; i < manager.Count; i++)
             {
-                Image img = new ()
+                Image img = new()
                 {
                     Source = ImageSource.FromResource(manager.PathToPhoto),
                     WidthRequest = manager.Width,

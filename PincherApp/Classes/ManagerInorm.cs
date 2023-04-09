@@ -1,4 +1,4 @@
-﻿namespace PincherApp.Classes
+﻿namespace PincherApp
 {
     internal class ManagerInorm
     {

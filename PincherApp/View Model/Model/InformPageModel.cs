@@ -1,11 +1,9 @@
-﻿using PincherApp;
-
-namespace PincherApp.View_Model.Model
+﻿namespace PincherApp
 {
     internal class InformPageModel
     {
         public double currentSize;
-        public InformPageModel() 
+        public InformPageModel()
         {
             DisplayInfo displayInfo = DeviceDisplay.MainDisplayInfo;
             currentSize = displayInfo.Width;
