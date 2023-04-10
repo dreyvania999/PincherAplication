@@ -4,36 +4,35 @@
              x:Class="PincherApp.InformPage"
              Title="InformPage">
 
-    <!-- Заголовок страницы -->
-    <ContentPage.Title>
-        <OnPlatform x:TypeArguments="x:String">
-            <On Platform="Android">Inform Page</On>
-            <On Platform="iOS">Inform Page</On>
-            <On Platform="macOS">Inform Page</On>
-            <On Platform="Windows">Inform Page</On>
-        </OnPlatform>
-    </ContentPage.Title>
-
     <!-- Основное содержимое страницы -->
     <StackLayout>
         <!-- Список раскрывающихся элементов -->
-        <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected">
+        <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected" VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout >
-                            <!-- Заголовок элемента списка -->
-                            <StackLayout Orientation="Horizontal" >
-                                <Image Source="{Binding PhotoPath}" MaximumHeightRequest="150"  MaximumWidthRequest="150" />
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" />
-                                    <!-- Развернутое содержимое элемента списка -->
-                                    <StackLayout IsVisible="{Binding IsActivate}">
-                                        <Label Text="{Binding Description}" FontSize="16" />
-                                    </StackLayout>
-                                </StackLayout>
+                        <StackLayout Orientation="Vertical" Padding="10">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                            </StackLayout>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Grid.Row="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="300"/>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Vertical" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                                        <!-- Развернутое содержимое элемента списка -->
+                                        <StackLayout IsVisible="{Binding IsActivate}">
+                                            <Label Text="{Binding Description}" FontSize="16" />
+                                        </StackLayout>
+                                </StackLayout>
+                                
+                            </Grid>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -41,7 +40,7 @@
         </ListView>
 
         <!-- Кнопка "Назад" -->
-        <Button Text="Back" Command="{Binding BackCommand}" />
+        <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="CenterAndExpand" Margin="10" />
     </StackLayout>
 
 </ContentPage>

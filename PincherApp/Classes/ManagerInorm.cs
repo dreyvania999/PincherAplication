@@ -1,12 +1,12 @@
-﻿using PincherApp.Core;
-
+﻿
 namespace PincherApp
 {
-    internal class ManagerInorm: ISizable
+    //Класс для выводв изображений 
+    internal class ManagerInorm : ISizable
     {
         private int _count;
-       
-        public readonly string PathToPhoto ;
+
+        public readonly string PathToPhoto;
 
         public ManagerInorm(string pathToPhoto)
         {

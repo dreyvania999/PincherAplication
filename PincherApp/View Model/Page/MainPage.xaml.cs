@@ -14,7 +14,7 @@
         [Obsolete]
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);
+            _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
@@ -22,11 +22,15 @@
         [Obsolete]
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);
+            _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат 
             _model.CountUpperManagers = (int)Math.Round(e.NewValue);
             SetPhoto(UpperManagers, _model.UpperManager);
         }
-
+        /// <summary>
+        /// Метод который добавляет картинки в обьект 
+        /// </summary>
+        /// <param name="managerLayout">Обьект в который будет добавляться фото</param>
+        /// <param name="manager">Менеджеры которых добавлять будем</param>
         [Obsolete]
         private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
         {

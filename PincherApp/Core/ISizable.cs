@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PincherApp
+﻿namespace PincherApp
 {
-    
+
     internal interface ISizable
     {
         public double CurrentWidth { get; set; }

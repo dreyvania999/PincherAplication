@@ -83,4 +83,7 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPincherAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

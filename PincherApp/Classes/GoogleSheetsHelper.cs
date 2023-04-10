@@ -5,18 +5,22 @@ using Google.Apis.Sheets.v4.Data;
 
 namespace PincherApp
 {
+    // Класс для работы с гугл таблиццами 
     public class GoogleSheetsHelper
     {
         public SheetsService Service { get; set; }
 
         private const string APPLICATION_NAME = "PincherApp";
-        private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
+        private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets }; //Область применения 
 
         public GoogleSheetsHelper()
         {
             InitializeService();
         }
 
+        /// <summary>
+        /// Метод инициализации сервиса
+        /// </summary>
         private void InitializeService()
         {
             GoogleCredential credential = GetCredentialsFromFile();
@@ -26,8 +30,11 @@ namespace PincherApp
                 ApplicationName = APPLICATION_NAME
             });
         }
-
-        private GoogleCredential GetCredentialsFromFile()
+        /// <summary>
+        /// Метод для получения учетных данных из файла
+        /// </summary>
+        /// <returns>Учетные данные для гугл из "Google.Apis.Auth.OAuth2"</returns>
+        private static  GoogleCredential GetCredentialsFromFile()
         {
             GoogleCredential credential;
 
@@ -39,7 +46,12 @@ namespace PincherApp
             return credential;
         }
 
-
+        /// <summary>
+        /// Получение информации  из таблицы
+        /// </summary>
+        /// <param name="spreadsheetId">Идентификатор таблиццы</param>
+        /// <param name="range"> массив значений из каких ячеек и страниц брать информацию</param>
+        /// <returns>Список (аналог таблиццы)</returns>
         public IList<IList<object>> GetSpreadsheetValues(string spreadsheetId, string range)
         {
             SpreadsheetsResource.ValuesResource.GetRequest request =
