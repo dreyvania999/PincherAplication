@@ -1,23 +1,37 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PincherApp.MainPage">
+
     <ScrollView>
-        <StackLayout Orientation="Vertical">
-            <StackLayout x:Name="UpperManagers" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Spacing="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" x:Name="UpperManagers" Orientation="Horizontal">
                 <!-- Картинки руководителей отдела продаж выводятся здесь -->
             </StackLayout>
-            <StackLayout x:Name="LowerManagers" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="1">
+
+            <StackLayout Grid.Row="1" Grid.Column="0" x:Name="LowerManagers" Orientation="Horizontal">
                 <!-- Картинки менеджеров отдела продаж выводятся здесь -->
             </StackLayout>
-            <StackLayout Margin="10,0,0,0" Orientation="Vertical" >
-                <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center"  />
+
+            <StackLayout Grid.Row="2" Grid.Column="0">
+                <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center" />
                 <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" WidthRequest="200" ValueChanged="UpperManagerSlider_ValueChanged"/>
                 <Label Text="{Binding CountLowerManagers}" HorizontalOptions="Center" />
-                <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40" WidthRequest="200" ValueChanged="LowerManagerSlider_ValueChanged"   />
-                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand"  />
+                <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40" WidthRequest="200" ValueChanged="LowerManagerSlider_ValueChanged"/>
+                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="AgreeButton" Text="Подтвердить" HorizontalOptions="CenterAndExpand" Clicked="AgreeButton_Clicked" />
                 <Button x:Name="NextButton" Text="Далее" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="NextButton_Clicked" />
             </StackLayout>
-        </StackLayout>
+        </Grid>
     </ScrollView>
+
 </ContentPage>

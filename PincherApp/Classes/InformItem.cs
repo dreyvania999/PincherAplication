@@ -1,9 +1,16 @@
-﻿namespace PincherApp
+﻿using System.ComponentModel;
+
+namespace PincherApp
 {
-    public class InformItem
+    public class InformItem : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private bool _isActivate = false;
-        private PropertyChanger _propertyChanger = new PropertyChanger();
 
         public InformItem(string PhotoPath, string Title, string Description)
         {
@@ -21,7 +28,7 @@
             set
             {
                 _isActivate = value;
-                _propertyChanger.OnPropertyChanged(nameof(IsActivate));
+                OnPropertyChanged(nameof(IsActivate));
             }
         }
 

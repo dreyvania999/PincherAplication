@@ -1,11 +1,12 @@
-﻿namespace PincherApp
+﻿using PincherApp.Core;
+
+namespace PincherApp
 {
-    internal class ManagerInorm
+    internal class ManagerInorm: ISizable
     {
         private int _count;
-        private double _widthPhoto;
-        private double _heightPhoto;
-        public readonly string PathToPhoto;
+       
+        public readonly string PathToPhoto ;
 
         public ManagerInorm(string pathToPhoto)
         {
@@ -23,28 +24,13 @@
                 }
             }
         }
-        public double Width
-        {
-            get => _widthPhoto;
-            set
-            {
-                if (_widthPhoto != value)
-                {
-                    _widthPhoto = value;
-                }
-            }
-        }
+        public double CurrentWidth { get; set; }
+        public double CurrentHeight { get; set; }
 
-        public double Height
+        public void UpdateSize(double Width, double Height)
         {
-            get => _heightPhoto;
-            set
-            {
-                if (_heightPhoto != value)
-                {
-                    _heightPhoto = value;
-                }
-            }
+            CurrentWidth = Width;
+            CurrentHeight = Height;
         }
 
 
