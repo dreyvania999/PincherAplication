@@ -1,3 +1,5 @@
+using PincherApp.Core.Classes;
+
 namespace PincherApp
 {
 
@@ -20,5 +22,9 @@ namespace PincherApp
             }
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PincherApp
+﻿namespace PincherApp.Core.Interfase
 {
 
     internal interface ISizable

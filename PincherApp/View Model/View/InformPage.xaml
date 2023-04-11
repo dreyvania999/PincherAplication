@@ -4,7 +4,9 @@
              x:Class="PincherApp.InformPage"
              Title="InformPage">
 
+    <StackLayout>
     <!-- Основное содержимое страницы -->
+        <ScrollView>
     <StackLayout>
         <!-- Список раскрывающихся элементов -->
         <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected" VerticalOptions="FillAndExpand">
@@ -38,9 +40,16 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+            <StackLayout  Orientation="Horizontal">
+                <Label Text="Просичтать окупаемость?"  />
+                <Button Text="Конечно!" Clicked="Button_Clicked" />
+            </StackLayout>
 
+        </StackLayout>
+    
+        </ScrollView>
         <!-- Кнопка "Назад" -->
-        <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="CenterAndExpand" Margin="10" />
+                <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="CenterAndExpand" Margin="10" />
     </StackLayout>
-
 </ContentPage>

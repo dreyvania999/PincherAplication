@@ -46,27 +46,24 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-	<ItemGroup>
-		<None Remove="Resources\Raw\pinchertestproject.json" />
-	</ItemGroup>
-	<ItemGroup>
-	  <MauiImage Remove="Resources\Images\screenshot_1.png" />
-	  <MauiImage Remove="Resources\Images\screenshot_2.png" />
-	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\screenshot_1.png" />
-	  <None Remove="Resources\Images\screenshot_2.png" />
+		<None Remove="Resources\Images\icon.svg" />
+		<None Remove="Resources\Raw\pinchertestproject.json" />
+		<None Remove="Resources\Images\screenshot_1.png" />
+		<None Remove="Resources\Images\screenshot_2.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Images\screenshot_1.png" />
 	  <EmbeddedResource Include="Resources\Images\screenshot_2.png" />
+	  <EmbeddedResource Remove="Resources\Images\icon.svg" BaseSize="128,128" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Google.Apis.Auth" Version="1.60.0" />
 		<PackageReference Include="Google.Apis.Sheets.v4" Version="1.60.0.2979" />
@@ -79,6 +76,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page\SplashScreenPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View Model\View\CostСalculationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

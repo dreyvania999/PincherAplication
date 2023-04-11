@@ -1,5 +1,6 @@
-﻿
-namespace PincherApp
+﻿using PincherApp.Core.Interfase;
+
+namespace PincherApp.Core.Classes
 {
     //Класс для выводв изображений 
     internal class ManagerInorm : ISizable
