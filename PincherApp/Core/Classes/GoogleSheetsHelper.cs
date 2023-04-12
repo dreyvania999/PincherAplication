@@ -63,7 +63,11 @@ namespace PincherApp.Core.Classes
             return values;
         }
 
-
+        /// <summary>
+        /// Метод для преобразования обьектов в наш тип данных
+        /// </summary>
+        /// <param name="values">Список обьектов из гугл таблиццы </param>
+        /// <returns>Базовый обьеект который можно привести к необходимому виду</returns>
         public static List<BaseItem> MapFromRangeData(IList<IList<object>> values)
         {
             List<BaseItem> items = new();
@@ -79,6 +83,12 @@ namespace PincherApp.Core.Classes
             return items;
         }
 
+        /// <summary>
+        /// Метод для получения данных из табылинццы в нужном нам виде
+        /// </summary>
+        /// <param name="spreadsheetId">Идентификатор таблиццы</param>
+        /// <param name="range"> массив значений из каких ячеек и страниц брать информацию</param>
+        /// <returns>Базовый обьеект который можно привести к необходимому виду</returns>
         public static List<BaseItem> GetInformItemsFromSpreadsheet(string spreadsheetId, string range)
         {
             GoogleSheetsHelper sheetsHelper = new();

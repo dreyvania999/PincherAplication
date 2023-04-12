@@ -51,15 +51,14 @@ namespace PincherApp
             }
         }
 
-        private void AgreeButton_Clicked(object sender, EventArgs e)
+        private void SeeMoreButton_Clicked(object sender, EventArgs e)
         {
-
-            NextButton.IsVisible = true;
+           Navigation.PushAsync(new InformPage());
         }
 
-        private void NextButton_Clicked(object sender, EventArgs e)
+        private void ConsultationButton_Clicked(object sender, EventArgs e)
         {
-            _ = Navigation.PushAsync(new InformPage());
+            Navigation.PushAsync(new CostСalculationPage());
         }
 
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

@@ -2,13 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PincherApp.MainPage">
 
-    
+    <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="4*" />
-                <RowDefinition Height="4*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <!-- Что-то не работает с размерами(странненько немного) -->
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -22,16 +23,16 @@
                 </Grid.ColumnDefinitions>
                 <!-- Лого -->
 
-                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" MaximumHeightRequest="150" MaximumWidthRequest="150">
+                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" MaximumHeightRequest="100" MaximumWidthRequest="100">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
                 </Image>
-            
+
             </Grid>
-        <ScrollView>
-            <StackLayout Orientation="Vertical">
-                <StackLayout Grid.Row="1" Grid.Column="0" x:Name="UpperManagers" Orientation="Horizontal">
+
+
+            <StackLayout Grid.Row="1" Grid.Column="0" x:Name="UpperManagers" Orientation="Horizontal">
                     <!-- Картинки руководителей отдела продаж выводятся здесь -->
                 </StackLayout>
 
@@ -45,12 +46,12 @@
                     <Label Text="{Binding CountLowerManagers}" HorizontalOptions="Center" />
                     <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40"  ValueChanged="LowerManagerSlider_ValueChanged"/>
                     <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
-                    <Button x:Name="AgreeButton" Text="Подтвердить" HorizontalOptions="CenterAndExpand" Clicked="AgreeButton_Clicked" />
-                    <Button x:Name="NextButton" Text="Далее" IsVisible="False" HorizontalOptions="CenterAndExpand" Clicked="NextButton_Clicked" />
+                    <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
+                    <Button x:Name="ConsultationButton" Text="Обратиться к нам за консультацией" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
 
-    </Grid>
+        </Grid>
+
+</ScrollView>
     
 </ContentPage>
