@@ -88,7 +88,7 @@
                 </Grid>
             </StackLayout>
 
-            <Button x:Name="Calculate" Text="Рассчитать" Clicked="Calculate_Clicked"/>
+            <Button Grid.Column="3" x:Name="Calculate" Text="Рассчитать" Clicked="Calculate_Clicked"/>
 
         </Grid>
     </ScrollView>

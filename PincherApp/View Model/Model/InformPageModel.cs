@@ -9,8 +9,6 @@ namespace PincherApp
         {
             InformItems = ConvertType(GoogleSheetsHelper.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A2:C"));
         }
-
-
         /// <summary>
         /// Метод для перевода в необходимый тип итема
         /// </summary>
@@ -23,7 +21,7 @@ namespace PincherApp
 
             foreach (BaseItem item in baseItems)
             {
-                informItems.Add(item as InformItem);
+                informItems.Add(new InformItem(item));
             }
             return informItems;
         }

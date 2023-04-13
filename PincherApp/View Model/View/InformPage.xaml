@@ -24,13 +24,13 @@
                                     <ColumnDefinition Width="3*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Grid.Row="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="300"/>
+                                        <Image Grid.Column="0" Grid.Row="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="300"/>
 
                                 <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Vertical" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
-                                        <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                                            <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
                                         <!-- Развернутое содержимое элемента списка -->
                                         <StackLayout IsVisible="{Binding IsActivate}">
-                                            <Label Text="{Binding Description}" FontSize="16" />
+                                                <Label Text="{Binding Description}" FontSize="16" />
                                         </StackLayout>
                                 </StackLayout>
                                 
@@ -49,7 +49,6 @@
         </StackLayout>
     
         </ScrollView>
-        <!-- Кнопка "Назад" -->
-                <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="CenterAndExpand" Margin="10" />
+
     </StackLayout>
 </ContentPage>

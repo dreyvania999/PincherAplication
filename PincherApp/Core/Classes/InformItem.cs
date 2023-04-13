@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
+﻿using PincherApp.Core.Classes;
+using System.ComponentModel;
 
-namespace PincherApp.Core.Classes
+namespace PincherApp
 {
     // Класс для отображения одного итема полученного из гугл таблиццы
     public class InformItem : BaseItem, INotifyPropertyChanged
@@ -13,6 +14,17 @@ namespace PincherApp.Core.Classes
         public InformItem(string PhotoPath, string Title, string Description)
          : base(PhotoPath, Title, Description)
         {
+            this.PhotoPath = base.PhotoPath;
+            this.Title = base.PhotoPath;
+            this.Description = base.PhotoPath;
+
+        }
+        public InformItem(BaseItem basic)
+            : base(basic.PhotoPath, basic.Title, basic.Description)
+        {
+            PhotoPath = basic.PhotoPath;
+            Title = basic.Title;
+            Description = basic.Description;
 
         }
 

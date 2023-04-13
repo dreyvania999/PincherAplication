@@ -1,3 +1,6 @@
+using PincherApp;
+using PincherApp.Core.Classes;
+
 namespace UnitTestProject
 {
     public class UnitTest1
@@ -7,7 +10,7 @@ namespace UnitTestProject
         public void InitializeInformItem()
         {
 
-          //  Assert.NotNull(new InformItem("3", "2", "1"));
+            Assert.NotNull(new InformItem("3", "2", "1"));
         }
 
 
@@ -29,9 +32,16 @@ namespace UnitTestProject
         }
 
         [Fact]
-        public void Test4()
+        public void ConverterBaseItemToInformItem()
         {
-
+            Assert.NotNull(new InformItem(new BaseItem("3", "2", "1")));
+        }
+        [Fact]
+        public void Baseus()
+        {
+            BaseItem BM = new("3", "2", "1");
+            InformItem? IM = BM as InformItem;
+            Assert.True(IM as BaseItem is not null);
         }
     }
 }

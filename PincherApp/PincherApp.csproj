@@ -81,6 +81,9 @@
 	  <MauiXaml Update="View Model\View\CostСalculationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View Model\View\ResultCalculation.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 

@@ -53,12 +53,12 @@ namespace PincherApp
 
         private void SeeMoreButton_Clicked(object sender, EventArgs e)
         {
-           Navigation.PushAsync(new InformPage());
+            _ = Navigation.PushAsync(new InformPage());
         }
 
         private void ConsultationButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CostСalculationPage());
+            _ = Navigation.PushAsync(new CostСalculationPage());
         }
 
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

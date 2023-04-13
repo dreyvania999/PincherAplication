@@ -1,5 +1,3 @@
-using PincherApp.Core.Classes;
-
 namespace PincherApp
 {
 
@@ -10,6 +8,7 @@ namespace PincherApp
         {
             informPageModelmodel = new InformPageModel();
             InitializeComponent();
+            BindingContext = informPageModelmodel; // установить контекст данных страницы
             ListElement.ItemsSource = informPageModelmodel.InformItems;
         }
 
