@@ -1,5 +1,4 @@
-﻿using PincherApp.Core.Classes;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace PincherApp
 {

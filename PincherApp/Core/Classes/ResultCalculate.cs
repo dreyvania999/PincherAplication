@@ -1,7 +1,7 @@
 ﻿
 namespace PincherApp
 {
-    internal class SalesInformation : IManagers
+    internal class ResultCalculate : IManagers
     {
         private int _count;
         public int Count
@@ -15,5 +15,7 @@ namespace PincherApp
                 }
             }
         }
+
+
     }
 }

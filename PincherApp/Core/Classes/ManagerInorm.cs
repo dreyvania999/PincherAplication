@@ -3,9 +3,9 @@
 namespace PincherApp.Core.Classes
 {
     //Класс для выводв изображений 
-    internal class ManagerInorm : ISizable
+    internal class ManagerInorm : ISizable, IManagers
     {
-        private int _count;
+
 
         public readonly string PathToPhoto;
 
@@ -14,6 +14,7 @@ namespace PincherApp.Core.Classes
             PathToPhoto = pathToPhoto;
         }
 
+        private int _count;
         public int Count
         {
             get => _count;

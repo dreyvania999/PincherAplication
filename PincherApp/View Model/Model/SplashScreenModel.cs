@@ -1,4 +1,4 @@
-﻿namespace PincherApp.View_Model.Model
+﻿namespace PincherApp
 {
     internal class SplashScreenModel
     {

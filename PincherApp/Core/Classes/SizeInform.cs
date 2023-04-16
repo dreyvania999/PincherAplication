@@ -1,6 +1,6 @@
-﻿using PincherApp.Core.Interfase;
+﻿using PincherApp;
 
-namespace PincherApp.Core.Classes
+namespace PincherApp
 {
     //Класс для размеров экрана(для возможности расширения при )
     internal class SizeInform : ISizable

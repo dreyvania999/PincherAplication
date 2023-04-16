@@ -1,4 +1,3 @@
-using PincherApp;
 using PincherApp.Core.Classes;
 
 namespace UnitTestProject
