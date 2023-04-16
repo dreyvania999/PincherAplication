@@ -1,20 +1,9 @@
 ﻿
 namespace PincherApp
 {
-    internal class ResultCalculate : IManagers
+    internal class ResultCalculate : BaseSaler
     {
-        private int _count;
-        public int Count
-        {
-            get => _count;
-            set
-            {
-                if (_count != value)
-                {
-                    _count = value;
-                }
-            }
-        }
+
 
 
     }

@@ -13,9 +13,6 @@ namespace PincherApp
         public InformItem(string PhotoPath, string Title, string Description)
          : base(PhotoPath, Title, Description)
         {
-            this.PhotoPath = base.PhotoPath;
-            this.Title = base.PhotoPath;
-            this.Description = base.PhotoPath;
 
         }
         public InformItem(BaseItem basic)

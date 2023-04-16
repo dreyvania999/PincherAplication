@@ -1,6 +1,4 @@
-﻿using PincherApp;
-
-namespace PincherApp
+﻿namespace PincherApp
 {
     //Класс для размеров экрана(для возможности расширения при )
     internal class SizeInform : ISizable
