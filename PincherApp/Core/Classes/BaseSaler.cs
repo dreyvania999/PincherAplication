@@ -12,6 +12,7 @@
                 if (_count != value)
                 {
                     _count = value;
+                    _revenueYear = _mopRevenueYear * _count;
                 }
             }
         }
@@ -33,6 +34,8 @@
             set
             {
                 _mopMonthlyRevenue = value;
+                _mopRevenueYear = _mopMonthlyRevenue * 12;
+                _revenueYear = _mopRevenueYear * _count;
             }
         }
 
@@ -40,10 +43,12 @@
         public double MopRevenueYear
         {
             get => _mopRevenueYear;
-            set
-            {
-                _mopRevenueYear = value;
-            }
+        }
+
+        private double _revenueYear;
+        public double RevenueYear
+        {
+            get => _revenueYear;
         }
 
         private double _operatingProfit;
