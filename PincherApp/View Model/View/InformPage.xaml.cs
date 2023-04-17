@@ -1,3 +1,5 @@
+using PincherApp.Core.Classes;
+
 namespace PincherApp
 {
 

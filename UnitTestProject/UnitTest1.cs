@@ -1,4 +1,6 @@
-using PincherApp;
+using PincherApp.Core.Classes;
+using PincherApp.Core.Interfase;
+
 namespace UnitTestProject
 {
     public class UnitTest1
@@ -11,6 +13,17 @@ namespace UnitTestProject
             Assert.NotNull(new InformItem("3", "2", "1"));
         }
 
+        [Fact]
+        public void InterfasesWorckCorrectly()
+        {
+            List<IManagers> lis = new()
+            {
+                new ManagerInorm("123"),
+                new SalesInformation()
+            };
+
+            Assert.NotNull(lis);
+        }
 
         [Fact]
         public void TestFileExists()

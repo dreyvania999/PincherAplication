@@ -1,7 +1,6 @@
-﻿
-namespace PincherApp
+﻿namespace PincherApp.Core.Classes
 {
-    internal class SalesInformation : BaseSaler
+    public class SalesInformation : BaseSaler
     {
 
 

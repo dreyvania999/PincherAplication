@@ -1,6 +1,6 @@
-﻿namespace PincherApp
+﻿namespace PincherApp.Core.Interfase
 {
-    internal interface IManagers
+    public interface IManagers
     {
 
         public int Count
@@ -8,5 +8,6 @@
             get;
             set;
         }
+
     }
 }

@@ -17,13 +17,17 @@ namespace PincherApp
                 Command = new Command(() =>
                 {
                     if (PhoneDialer.Default.IsSupported)
+                    {
                         PhoneDialer.Default.Open("+79535599079");
+                    }
                     else
-                        DisplayAlert("Alert", "You have been alerted", "OK");
+                    {
+                        _ = DisplayAlert("Alert", "You have been alerted", "OK");
+                    }
                 })
             });
         }
-       
+
 
 
 

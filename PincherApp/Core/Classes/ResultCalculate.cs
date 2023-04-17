@@ -1,13 +1,12 @@
-﻿
-namespace PincherApp
+﻿namespace PincherApp.Core.Classes
 {
     internal class ResultCalculate : BaseSaler
     {
-       public ResultCalculate(SalesInformation sales, double growth)
+        public ResultCalculate(SalesInformation sales, double growth)
         {
-            this.Count = sales.Count;
-            this.MopMonthlyRevenue = (sales.MopMonthlyRevenue/100)* growth+ sales.MopMonthlyRevenue;
-            this.Conversion = (sales.Conversion / 100) * growth + sales.Conversion;
+            Count = sales.Count;
+            MopMonthlyRevenue = sales.MopMonthlyRevenue / 100 * growth + sales.MopMonthlyRevenue;
+            Conversion = sales.Conversion / 100 * growth + sales.Conversion;
         }
 
     }

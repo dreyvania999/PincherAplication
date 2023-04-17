@@ -1,8 +1,12 @@
+using PincherApp.Core.Classes;
+
 namespace PincherApp;
 
 public partial class CostСalculationPage : ContentPage
 {
     private readonly CostСalculationModel costСalculationModel;
+
+    private double growth;
     public CostСalculationPage()
     {
         costСalculationModel = new CostСalculationModel();
@@ -11,18 +15,23 @@ public partial class CostСalculationPage : ContentPage
 
         BusinessFocus.ItemsSource = costСalculationModel.BiznessType;
 
-        BusinessFocus.BindingContext = new Binding("Title");
+        BusinessFocus.ItemDisplayBinding = new Binding("Title");
 
     }
 
     private void BusinessFocus_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        Picker picker = sender as Picker;
+        if (picker.SelectedItem is BaseItem selected)
+        {
+            string description = selected.Description;
+            growth = Convert.ToDouble(description);
+        }
     }
 
     private void Calculate_Clicked(object sender, EventArgs e)
     {
-        _ = Navigation.PushAsync(new ResultCalculation());
+        _ = Navigation.PushAsync(new ResultCalculation(costСalculationModel.getSales, growth));
     }
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {

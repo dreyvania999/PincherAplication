@@ -10,16 +10,16 @@ namespace PincherApp
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private SalesInformation sales = new();
 
         public List<BaseItem> BiznessType = GoogleSheetsHelper.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!F2:H");
 
+        public SalesInformation getSales { get; } = new();
         public int Count
         {
-            get => sales.Count;
+            get => getSales.Count;
             set
             {
-                sales.Count = value;
+                getSales.Count = value;
                 OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(RevenueYear));
             }
@@ -27,10 +27,10 @@ namespace PincherApp
 
         public double Conversion
         {
-            get => sales.Conversion;
+            get => getSales.Conversion;
             set
             {
-                sales.Conversion = value;
+                getSales.Conversion = value;
                 OnPropertyChanged(nameof(Conversion));
             }
         }
@@ -38,24 +38,24 @@ namespace PincherApp
 
         public double MopMonthlyRevenue
         {
-            get => sales.MopMonthlyRevenue;
+            get => getSales.MopMonthlyRevenue;
             set
             {
-                sales.MopMonthlyRevenue = value;
+                getSales.MopMonthlyRevenue = value;
                 OnPropertyChanged(nameof(MopMonthlyRevenue));
                 OnPropertyChanged(nameof(MopRevenueYear));
                 OnPropertyChanged(nameof(RevenueYear));
             }
         }
 
-        public double MopRevenueYear => sales.MopRevenueYear;
+        public double MopRevenueYear => getSales.MopRevenueYear;
 
-        public double RevenueYear => sales.RevenueYear;
+        public double RevenueYear => getSales.RevenueYear;
 
         public double OperatingProfit
         {
-            get => sales.OperatingProfit;
-            set => sales.OperatingProfit = value;
+            get => getSales.OperatingProfit;
+            set => getSales.OperatingProfit = value;
         }
     }
 }

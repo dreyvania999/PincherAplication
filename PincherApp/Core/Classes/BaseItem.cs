@@ -1,4 +1,4 @@
-﻿namespace PincherApp
+﻿namespace PincherApp.Core.Classes
 {
     public class BaseItem
     {

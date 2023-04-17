@@ -1,6 +1,8 @@
-﻿namespace PincherApp
+﻿using PincherApp.Core.Interfase;
+
+namespace PincherApp.Core.Classes
 {
-    abstract class BaseSaler : IManagers
+    public abstract class BaseSaler : IManagers
     {
 
         private int _count;
@@ -12,20 +14,12 @@
                 if (_count != value)
                 {
                     _count = value;
-                    _revenueYear = _mopRevenueYear * _count;
+                    RevenueYear = MopRevenueYear * _count;
                 }
             }
         }
 
-        private double _currentCconversion;
-        public double Conversion
-        {
-            get => _currentCconversion;
-            set
-            {
-                _currentCconversion = value;
-            }
-        }
+        public double Conversion { get; set; }
 
         private double _mopMonthlyRevenue;
         public double MopMonthlyRevenue
@@ -34,31 +28,13 @@
             set
             {
                 _mopMonthlyRevenue = value;
-                _mopRevenueYear = _mopMonthlyRevenue * 12;
-                _revenueYear = _mopRevenueYear * _count;
+                MopRevenueYear = _mopMonthlyRevenue * 12;
+                RevenueYear = MopRevenueYear * _count;
             }
         }
 
-        private double _mopRevenueYear;
-        public double MopRevenueYear
-        {
-            get => _mopRevenueYear;
-        }
-
-        private double _revenueYear;
-        public double RevenueYear
-        {
-            get => _revenueYear;
-        }
-
-        private double _operatingProfit;
-        public double OperatingProfit
-        {
-            get => _operatingProfit;
-            set
-            {
-                _operatingProfit = value;
-            }
-        }
+        public double MopRevenueYear { get; private set; }
+        public double RevenueYear { get; private set; }
+        public double OperatingProfit { get; set; }
     }
 }

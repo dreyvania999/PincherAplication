@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PincherApp
+namespace PincherApp.Core.Classes
 {
     // Класс для отображения одного итема полученного из гугл таблиццы
     public class InformItem : BaseItem, INotifyPropertyChanged
