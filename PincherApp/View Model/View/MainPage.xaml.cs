@@ -11,7 +11,21 @@ namespace PincherApp
             InitializeComponent();
             _model = new MainPageModel();
             BindingContext = _model;
+            //Добавление команды для набора телефона 
+            Call.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    if (PhoneDialer.Default.IsSupported)
+                        PhoneDialer.Default.Open("+79535599079");
+                    else
+                        DisplayAlert("Alert", "You have been alerted", "OK");
+                })
+            });
         }
+       
+
+
 
         [Obsolete]
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)

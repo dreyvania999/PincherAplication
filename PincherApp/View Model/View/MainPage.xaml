@@ -40,16 +40,16 @@
                     <!-- Картинки менеджеров отдела продаж выводятся здесь -->
                 </StackLayout>
 
-                <StackLayout Grid.Row="3" Grid.Column="0" x:Name="ClientView">
-                    <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center" />
-                    <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" ValueChanged="UpperManagerSlider_ValueChanged"/>
-                    <Label Text="{Binding CountLowerManagers}" HorizontalOptions="Center" />
-                    <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40"  ValueChanged="LowerManagerSlider_ValueChanged"/>
-                    <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
-                    <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
-                    <Button x:Name="ConsultationButton" Text="Обратиться к нам за консультацией" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
-                </StackLayout>
-
+            <StackLayout Grid.Row="3" Grid.Column="0" x:Name="ClientView">
+                <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center" />
+                <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" ValueChanged="UpperManagerSlider_ValueChanged"/>
+                <Label Text="{Binding CountLowerManagers}" HorizontalOptions="Center" />
+                <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40"  ValueChanged="LowerManagerSlider_ValueChanged"/>
+                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
+                <Button x:Name="ConsultationButton" Text="Расчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
+                <Label x:Name="Call" Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
+            </StackLayout>
         </Grid>
 
 </ScrollView>

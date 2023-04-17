@@ -7,7 +7,7 @@
         <Grid>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="4*" />
                 <RowDefinition Height="3*" />
@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
                 <!-- Лого -->
 
-                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" MaximumHeightRequest="150" MaximumWidthRequest="150">
+                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" MaximumHeightRequest="100" MaximumWidthRequest="100">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
@@ -29,7 +29,7 @@
 
             </Grid>
 
-            <StackLayout Grid.Row="2" Orientation="Horizontal" Background="#528FF8">
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Background="#528FF8">
                 <Label Text="Средний прирост в вашей сфере"/>
                 <Label Text="{Binding Prirost}"/>
             </StackLayout>
@@ -57,11 +57,22 @@
                     <Label Grid.Row="2" Grid.Column="0" Text="Годовая выручка на МОПа:"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Годовая выручка на отдел:"/>
 
-
-                    <Label x:Name="Konversion" Grid.Row="0" Grid.Column="1" Text="{Binding MOPYearRevenue}" />
-                    <Label x:Name="MOPRevenue" Grid.Row="1" Grid.Column="1" Text="{Binding MOPYearRevenue}" />
-                    <Label x:Name="MOPYearRevenue" Grid.Row="2" Grid.Column="1" Text="{Binding MOPYearRevenue}"/>
-                    <Label x:Name="YearRevenue" Grid.Row="3" Grid.Column="1" Text="{Binding YearRevenue}"/>
+                    <StackLayout Grid.Row="0" Grid.Column="1">
+                        <Label x:Name="Konversion" TextDecorations="Strikethrough" Text="{Binding Conversion}" />
+                        <Label x:Name="NewKonversion"  Text="{Binding NewConversion}" />
+                    </StackLayout>
+                    <StackLayout  Grid.Row="1" Grid.Column="1">
+                        <Label x:Name="MOPRevenue" TextDecorations="Strikethrough" Text="{Binding MOPRevenue}" />
+                        <Label x:Name="NewMOPRevenue" Text="{Binding NewMOPRevenue}" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1" >
+                        <Label x:Name="MOPYearRevenue" TextDecorations="Strikethrough" Text="{Binding MOPYearRevenue}"/>
+                        <Label x:Name="NewMOPYearRevenue" Text="{Binding NewMOPYearRevenue}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="1" >
+                        <Label x:Name="YearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}"/>
+                        <Label x:Name="NewYearRevenue" Text="{Binding NewYearRevenue}"/>
+                    </StackLayout>
 
                 </Grid>
             </StackLayout>
@@ -85,14 +96,14 @@
                     <Label Grid.Row="0" Grid.Column="0" Text="Направленость бизнеса:"/>
 
 
-                    <Picker x:Name="BusinessFocus" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="BusinessFocus_SelectedIndexChanged"/>
+                    <Picker x:Name="BusinessFocus" Grid.Row="0" Grid.Column="1" />
                     <Label x:Name="BusinessFocusNone" Grid.Row="1" Grid.Column="1" Text="Не нашли свою?" />
 
 
                 </Grid>
             </StackLayout>
 
-            <Button Grid.Column="4" x:Name="Calculate" Text="Рассчитать" Clicked="Calculate_Clicked"/>
+            <Button Grid.Column="4" x:Name="Calculate" Text="Рассчитать" />
 
         </Grid>
     </ScrollView>

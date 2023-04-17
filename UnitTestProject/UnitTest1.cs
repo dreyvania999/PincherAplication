@@ -1,3 +1,4 @@
+using PincherApp;
 namespace UnitTestProject
 {
     public class UnitTest1
