@@ -29,9 +29,10 @@
 
             </Grid>
 
-            <StackLayout Grid.Row="1" Orientation="Horizontal" Background="#528FF8">
-                <Label Text="Средний прирост в вашей сфере"/>
-                <Label Text="{Binding Prirost}"/>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Background="#528FF8" Spacing="5">
+                <Label Text="Средний прирост в вашей сфере:"/>
+                <Label Text="{Binding Prirost}" />
+                <Label Text="%" />
             </StackLayout>
 
             <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
@@ -40,11 +41,11 @@
                 </StackLayout>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -62,12 +63,12 @@
                         <Label x:Name="NewKonversion"  Text="{Binding NewConversion}" />
                     </StackLayout>
                     <StackLayout  Grid.Row="1" Grid.Column="1">
-                        <Label x:Name="MOPRevenue" TextDecorations="Strikethrough" Text="{Binding MOPRevenue}" />
-                        <Label x:Name="NewMOPRevenue" Text="{Binding NewMOPRevenue}" />
+                        <Label x:Name="MOPRevenue" TextDecorations="Strikethrough" Text="{Binding MopMonthlyRevenue}" />
+                        <Label x:Name="NewMOPRevenue" Text="{Binding NewMopMonthlyRevenue}" />
                     </StackLayout>
                     <StackLayout Grid.Row="2" Grid.Column="1" >
-                        <Label x:Name="MOPYearRevenue" TextDecorations="Strikethrough" Text="{Binding MOPYearRevenue}"/>
-                        <Label x:Name="NewMOPYearRevenue" Text="{Binding NewMOPYearRevenue}"/>
+                        <Label x:Name="MOPYearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}"/>
+                        <Label x:Name="NewMOPYearRevenue" Text="{Binding NewMOPRevenue}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="3" Grid.Column="1" >
                         <Label x:Name="YearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}"/>
@@ -103,7 +104,7 @@
                 </Grid>
             </StackLayout>
 
-            <Button Grid.Column="4" x:Name="Calculate" Text="Рассчитать" />
+            <Button Grid.Row="4" x:Name="Calculate" Text="Рассчитать" />
 
         </Grid>
     </ScrollView>

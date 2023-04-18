@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PincherApp.SplashScreenPage" Collapsed="true">
-    <Position X="5.25" Y="3.5" Width="1.5" />
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View Model\View\SplashScreenPage.xaml.cs</FileName>
@@ -41,7 +41,7 @@
       <HashCode>QAAAAAAAAAAAQAAAIAgAAAQAgAAAABAABAAAAACACAA=</HashCode>
       <FileName>View Model\Model\CostСalculationModel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="PincherApp.InformPageModel" Collapsed="true">
     <Position X="5.25" Y="1.5" Width="1.5" />
@@ -56,7 +56,7 @@
       <HashCode>AAAAAACAAAAAAAIAJAAAQAAAiACAAAIAAAAAAAADAAA=</HashCode>
       <FileName>View Model\Model\MainPageModel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="PincherApp.ResultCalculationModel" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7" Y="2.5" Width="1.5" />
@@ -64,7 +64,7 @@
       <HashCode>QAAAAAABAAAAAAAAIAggAAQAwACAAACCAAgAAAAABAA=</HashCode>
       <FileName>View Model\Model\ResultCalculationModel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="PincherApp.SplashScreenModel" Collapsed="true">
     <Position X="10.5" Y="2.5" Width="1.5" />
@@ -96,7 +96,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PincherApp.Core.Classes.InformItem" Collapsed="true">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="2.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAIAAAAAAAgAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Classes\InformItem.cs</FileName>
@@ -104,12 +104,12 @@
     <Lollipop Orientation="Bottom" Position="0.912" />
   </Class>
   <Class Name="PincherApp.Core.Classes.ManagerInorm" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="10.5" Y="1.5" Width="1.5" />
+    <Position X="10.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQABAAAgAAAAACQAAIAAAA=</HashCode>
       <FileName>Core\Classes\ManagerInorm.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="PincherApp.Core.Classes.ResultCalculate" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
@@ -131,17 +131,17 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAAAAIAAAA=</HashCode>
       <FileName>Core\Classes\SizeInform.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="PincherApp.Core.Interfase.IManagers" Collapsed="true">
-    <Position X="5.25" Y="4.75" Width="1.5" />
+    <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Interfase\IManagers.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="PincherApp.Core.Interfase.ISizable" Collapsed="true">
-    <Position X="7" Y="4.75" Width="1.5" />
+    <Position X="8.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAAAAIAAAA=</HashCode>
       <FileName>Core\Interfase\ISizable.cs</FileName>

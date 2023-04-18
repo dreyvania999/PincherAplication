@@ -41,9 +41,18 @@
                 </StackLayout>
 
             <StackLayout Grid.Row="3" Grid.Column="0" x:Name="ClientView">
-                <Label Text="{Binding CountUpperManagers}" HorizontalOptions="Center" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                    <Label Text="Количество старших менеджеров:" />
+                    <Label Text="{Binding CountUpperManagers}"  />
+                </StackLayout>
+                
                 <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="20" ValueChanged="UpperManagerSlider_ValueChanged"/>
-                <Label Text="{Binding CountLowerManagers}" HorizontalOptions="Center" />
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                    <Label Text="Количество младших менеджеров:" />
+                    <Label Text="{Binding CountLowerManagers}"  />
+                </StackLayout>
+            
                 <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40"  ValueChanged="LowerManagerSlider_ValueChanged"/>
                 <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
