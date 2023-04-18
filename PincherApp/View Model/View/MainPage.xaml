@@ -47,7 +47,7 @@
                 <Slider x:Name="LowerManagerSlider" Minimum="1" Maximum="40"  ValueChanged="LowerManagerSlider_ValueChanged"/>
                 <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа может быть оптимизирована" HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
-                <Button x:Name="ConsultationButton" Text="Расчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
+                <Button x:Name="ConsultationButton" Text="Рассчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
                 <Label x:Name="Call" Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
             </StackLayout>
         </Grid>
