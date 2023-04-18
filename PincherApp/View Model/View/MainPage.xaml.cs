@@ -16,13 +16,17 @@ namespace PincherApp
             {
                 Command = new Command(() =>
                 {
+#if WINDOWS
+DisplayAlert("Alert", "К сожалению нет возможности получть доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
+Clipboard.SetTextAsync("+79535599079");
+#endif
                     if (PhoneDialer.Default.IsSupported)
                     {
                         PhoneDialer.Default.Open("+79535599079");
                     }
                     else
                     {
-                        _ = DisplayAlert("Alert", "You have been alerted", "OK");
+                        DisplayAlert("Alert", "К сожалению нет возможности получть доступ к телефону", "OK");
                     }
                 })
             });
@@ -79,10 +83,10 @@ namespace PincherApp
             _ = Navigation.PushAsync(new CostСalculationPage());
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
             Uri websiteUri = new("https://pinschersales.ru/");
-            bool success = Launcher.TryOpenAsync(websiteUri).Result;
+            bool success = await Launcher.TryOpenAsync(websiteUri);
 
             if (!success)
             {

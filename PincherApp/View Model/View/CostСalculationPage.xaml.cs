@@ -33,10 +33,10 @@ public partial class CostСalculationPage : ContentPage
     {
         _ = Navigation.PushAsync(new ResultCalculation(costСalculationModel.getSales, growth));
     }
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         Uri websiteUri = new("https://pinschersales.ru/");
-        bool success = Launcher.TryOpenAsync(websiteUri).Result;
+        bool success = await Launcher.TryOpenAsync(websiteUri);
 
         if (!success)
         {
@@ -46,21 +46,51 @@ public partial class CostСalculationPage : ContentPage
 
     private void MOPCount_ValueChanged(object sender, ValueChangedEventArgs e)
     {
-        costСalculationModel.Count = (int)e.NewValue;
+        if (int.TryParse(e.NewValue.ToString(), out int count))
+        {
+            costСalculationModel.Count = count;
+        }
+        else
+        {
+            _ = DisplayAlert("Alert", "Повторите ввод колличества менеджеров", "OK");
+        }
     }
 
     private void MOPCountEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        costСalculationModel.Count = Convert.ToInt32(e.NewTextValue);
+        if (int.TryParse(e.NewTextValue, out int count))
+        {
+            costСalculationModel.Count = count;
+        }
+        else
+        {
+            _ = DisplayAlert("Alert", "Повторите ввод колличества менеджеров", "OK");
+        }
     }
 
     private void Konversion_TextChanged(object sender, TextChangedEventArgs e)
     {
-        costСalculationModel.Conversion = Convert.ToDouble(e.NewTextValue);
+        if (double.TryParse(e.NewTextValue, out double conversion))
+        {
+            costСalculationModel.Conversion = conversion;
+        }
+        else
+        {
+            _ = DisplayAlert("Alert", "Повторите ввод конверсии", "OK");
+        }
+
     }
 
     private void MOPRevenue_TextChanged(object sender, TextChangedEventArgs e)
     {
-        costСalculationModel.MopMonthlyRevenue = Convert.ToDouble(e.NewTextValue);
+        if (double.TryParse(e.NewTextValue, out double mopMonthlyRevenue))
+        {
+            costСalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
+        }
+        else
+        {
+            _ = DisplayAlert("Alert", "Повторите ввод выручки на одного MOПa", "OK");
+        }
+
     }
 }

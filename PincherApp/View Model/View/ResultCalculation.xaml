@@ -34,7 +34,7 @@
                 <Label Text="{Binding Prirost}"/>
             </StackLayout>
 
-            <StackLayout Grid.Row="2" Orientation="Vertical">
+            <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="10">
                 <StackLayout Background="#528FF8">
                     <Label Text="Ситуация на сегодня" TextColor="White"/>
                 </StackLayout>

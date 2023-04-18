@@ -1,38 +1,33 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PincherApp.InformPage"
              Title="InformPage">
 
-
     <!-- Основное содержимое страницы -->
     <ScrollView>
-        <StackLayout>
-            <!-- Список раскрывающихся элементов -->
+        <StackLayout Margin="10">
             <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected" VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical" Padding="10">
-                                <Grid >
+                            <Grid >
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="3*" />
-                                    </Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
 
-                                    <Image Grid.Column="0" Grid.Row="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="150"/>
+                                <Image Grid.Column="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="150"/>
 
-                                    <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Vertical" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
-                                        <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
-                                        <!-- Развернутое содержимое элемента списка -->
-                                        <StackLayout IsVisible="{Binding IsActivate}">
-                                            <Label Text="{Binding Description}" FontSize="16" />
-                                        </StackLayout>
+                                <StackLayout Grid.Column="1" Orientation="Vertical" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                                    <StackLayout IsVisible="{Binding IsActivate}">
+                                        <Label Text="{Binding Description}" FontSize="16" />
                                     </StackLayout>
+                                </StackLayout>
 
-                                </Grid>
-                            </StackLayout>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -43,8 +38,7 @@
                 <Button Text="Конечно!" Clicked="Button_Clicked" />
             </StackLayout>
         </StackLayout>
-
-
     </ScrollView>
+
 
 </ContentPage>

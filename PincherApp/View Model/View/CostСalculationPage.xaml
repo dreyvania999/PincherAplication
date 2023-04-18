@@ -55,10 +55,10 @@
 
                     <FlexLayout Grid.Row="0" Grid.Column="1" >
                         <Stepper x:Name="MOPCount"  Minimum="0" Maximum="40" Increment="1" ValueChanged="MOPCount_ValueChanged" Value="{Binding Count}"/>
-                        <Entry x:Name="MOPCountEntry" Grid.Row="1" Grid.Column="1" Placeholder="0" Text="{Binding Count}" TextChanged="MOPCountEntry_TextChanged" />
+                        <Entry x:Name="MOPCountEntry" Grid.Row="1" Grid.Column="1" Placeholder="0" Text="{Binding Count}" TextChanged="MOPCountEntry_TextChanged" Keyboard="Numeric" />
                     </FlexLayout>
-                    <Entry x:Name="Konversion" Grid.Row="1" Grid.Column="1" Placeholder="" TextChanged="Konversion_TextChanged"/>
-                    <Entry x:Name="MOPRevenue" Grid.Row="2" Grid.Column="1" Placeholder=""  TextChanged="MOPRevenue_TextChanged"/>
+                    <Entry x:Name="Konversion" Grid.Row="1" Grid.Column="1" Placeholder="" TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="2"/>
+                    <Entry x:Name="MOPRevenue" Grid.Row="2" Grid.Column="1" Placeholder=""  TextChanged="MOPRevenue_TextChanged" CharacterSpacing ="2" Keyboard="Numeric"/>
                     <Label x:Name="MOPYearRevenue" Grid.Row="3" Grid.Column="1" Text="{Binding MopRevenueYear}"/>
                     <Label x:Name="YearRevenue" Grid.Row="4" Grid.Column="1" Text="{Binding RevenueYear}"/>
 

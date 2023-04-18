@@ -12,10 +12,11 @@ public partial class ResultCalculation : ContentPage
         BindingContext = resultCalculationModel;
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
+
         Uri websiteUri = new("https://pinschersales.ru/");
-        bool success = Launcher.TryOpenAsync(websiteUri).Result;
+        bool success = await Launcher.TryOpenAsync(websiteUri);
 
         if (!success)
         {

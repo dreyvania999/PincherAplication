@@ -32,11 +32,11 @@
             </Grid>
 
 
-            <StackLayout Grid.Row="1" Grid.Column="0" x:Name="UpperManagers" Orientation="Horizontal">
+            <StackLayout Grid.Row="1" Grid.Column="0" x:Name="UpperManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
                     <!-- Картинки руководителей отдела продаж выводятся здесь -->
                 </StackLayout>
 
-                <StackLayout Grid.Row="2" Grid.Column="0" x:Name="LowerManagers" Orientation="Horizontal">
+                <StackLayout Grid.Row="2" Grid.Column="0" x:Name="LowerManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
                     <!-- Картинки менеджеров отдела продаж выводятся здесь -->
                 </StackLayout>
 

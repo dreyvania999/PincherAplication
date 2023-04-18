@@ -49,15 +49,23 @@
 
 	<ItemGroup>
 		<None Remove="Resources\Images\icon.svg" />
+		<None Remove="Resources\Images\lowermanager.png" />
+		<None Remove="Resources\Images\uppermanager.png" />
 		<None Remove="Resources\Raw\pinchertestproject.json" />
-		<None Remove="Resources\Images\screenshot_1.png" />
-		<None Remove="Resources\Images\screenshot_2.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Resources\Images\screenshot_1.png" />
-	  <EmbeddedResource Include="Resources\Images\screenshot_2.png" />
 	  <EmbeddedResource Remove="Resources\Images\icon.svg" BaseSize="128,128" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\lowermanager.png" />
+	  <MauiImage Remove="Resources\Images\uppermanager.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\lowermanager.png" />
+	  <EmbeddedResource Include="Resources\Images\uppermanager.png" />
 	</ItemGroup>
 
 	<ItemGroup>

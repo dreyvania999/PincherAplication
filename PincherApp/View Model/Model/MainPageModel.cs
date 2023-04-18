@@ -28,15 +28,15 @@ namespace PincherApp
         {
             Optimization = UpperManager.Count != 0 && (LowerManager.Count / UpperManager.Count) > 5;
         }
-        private readonly SizeInform windowSize;
+        private readonly SizeInform _windowSize;
         internal ManagerInorm LowerManager;
         internal ManagerInorm UpperManager;
 
         public MainPageModel()
         {
-            windowSize = new SizeInform();
-            LowerManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_1.png");
-            UpperManager = new ManagerInorm("PincherApp.Resources.Images.screenshot_2.png");
+            _windowSize = new SizeInform();
+            LowerManager = new ManagerInorm("PincherApp.Resources.Images.lowermanager.png");
+            UpperManager = new ManagerInorm("PincherApp.Resources.Images.uppermanager.png");
         }
 
         public int CountLowerManagers
@@ -47,13 +47,13 @@ namespace PincherApp
                 if (LowerManager.Count != value)
                 {
                     LowerManager.Count = value;
-                    if (windowSize.CurrentHeight <= windowSize.CurrentWidth / value)
+                    if (_windowSize.CurrentHeight <= _windowSize.CurrentWidth / value)
                     {
-                        LowerManager.UpdateSize(windowSize.CurrentHeight, windowSize.CurrentHeight);
+                        LowerManager.UpdateSize(_windowSize.CurrentHeight, _windowSize.CurrentHeight);
                     }
                     else
                     {
-                        LowerManager.UpdateSize(windowSize.CurrentWidth / value, windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
+                        LowerManager.UpdateSize(_windowSize.CurrentWidth / value, _windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
                     }
 
                     OnPropertyChanged(nameof(CountLowerManagers));
@@ -70,13 +70,13 @@ namespace PincherApp
                 if (UpperManager.Count != value)
                 {
                     UpperManager.Count = value;
-                    if (windowSize.CurrentHeight <= windowSize.CurrentWidth / value)
+                    if (_windowSize.CurrentHeight <= _windowSize.CurrentWidth / value)
                     {
-                        UpperManager.UpdateSize(windowSize.CurrentHeight, windowSize.CurrentHeight);
+                        UpperManager.UpdateSize(_windowSize.CurrentHeight, _windowSize.CurrentHeight);
                     }
                     else
                     {
-                        UpperManager.UpdateSize(windowSize.CurrentWidth / value, windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
+                        UpperManager.UpdateSize(_windowSize.CurrentWidth / value, _windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
                     }
 
                     OnPropertyChanged(nameof(CountUpperManagers));
@@ -88,7 +88,7 @@ namespace PincherApp
 
         public void UpdaneWindowSize(double height, double width)
         {
-            windowSize.UpdateSize(width, height);
+            _windowSize.UpdateSize(width - 10, height / 2);
         }
 
     }
