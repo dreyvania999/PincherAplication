@@ -3,7 +3,7 @@
   <Class Name="PincherApp.CostСalculationPage" Collapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAEQAAABCAAIAIAAAABAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAAAEQAAABCAAIEIAAAABAAAAgAAAAA=</HashCode>
       <FileName>View Model\View\CostСalculationPage.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PincherApp.ResultCalculation" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+    <Position X="5.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACAA=</HashCode>
       <FileName>View Model\View\ResultCalculation.xaml.cs</FileName>
@@ -38,7 +38,7 @@
   <Class Name="PincherApp.CostСalculationModel" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAQAAAIAgAAAQAgAAAABAABAAAAACACAA=</HashCode>
+      <HashCode>QAAAAABAAAAAAAAAIAgAAAQAgAAAABAABAAAAACACAA=</HashCode>
       <FileName>View Model\Model\CostСalculationModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -61,7 +61,7 @@
   <Class Name="PincherApp.ResultCalculationModel" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="7" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAABAAAAAAAAIAggAAQAwACAAACCAAgAAAAABAA=</HashCode>
+      <HashCode>QAAAAAABAAAAAAAAIAggAAQAwACAAACCAAgAAAAIBAA=</HashCode>
       <FileName>View Model\Model\ResultCalculationModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -74,7 +74,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PincherApp.Core.Classes.BaseItem" Collapsed="true">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Classes\BaseItem.cs</FileName>
@@ -91,12 +91,12 @@
   <Class Name="PincherApp.Core.Classes.GoogleSheetsHelper" Collapsed="true">
     <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAABgCAAAAABAAAAAAAIQAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAAAAAACAAABgCAAAAAAAAAAAAAIQAAAAAAAAAAABAA=</HashCode>
       <FileName>Core\Classes\GoogleSheetsHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PincherApp.Core.Classes.InformItem" Collapsed="true">
-    <Position X="2.75" Y="3" Width="1.5" />
+    <Position X="2.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAIAAAAAAAgAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Classes\InformItem.cs</FileName>
@@ -132,6 +132,13 @@
       <FileName>Core\Classes\SizeInform.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PincherApp.Core.StaticClasses.BaseProgrammInform" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADAAAAAAIAAAAAAACAAAAAAAAAAEAAEAAAIAAAAAAAE=</HashCode>
+      <FileName>Core\StaticClasses\BaseProgrammInform.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="PincherApp.Core.Interfase.IManagers" Collapsed="true">
     <Position X="7" Y="3.25" Width="1.5" />

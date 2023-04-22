@@ -1,4 +1,5 @@
 using PincherApp.Core.Classes;
+using System.Diagnostics.Metrics;
 
 namespace PincherApp;
 
@@ -31,16 +32,17 @@ public partial class CostСalculationPage : ContentPage
 
     private void Calculate_Clicked(object sender, EventArgs e)
     {
-        _ = Navigation.PushAsync(new ResultCalculation(costСalculationModel.getSales, growth));
+        _ = Navigation.PushAsync(new ResultCalculation(costСalculationModel.GetSales, growth));
     }
+
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         Uri websiteUri = new("https://pinschersales.ru/");
         bool success = await Launcher.TryOpenAsync(websiteUri);
 
-        if (!success)
+        if (!success) // проверка работы сайта
         {
-            // Если не удалось открыть сайт, выполните необходимые действия
+            await DisplayAlert("Alert", "Проблема с открытием сайта компании", "OK");
         }
     }
 
@@ -48,6 +50,12 @@ public partial class CostСalculationPage : ContentPage
     {
         if (int.TryParse(e.NewValue.ToString(), out int count))
         {
+
+            if (count < 0)
+            {
+                _ = DisplayAlert("Alert", "Вы уверины в том что ваше колличество менеджеров меньше нуля?", "OK");
+                return;
+            }
             costСalculationModel.Count = count;
         }
         else
@@ -60,6 +68,11 @@ public partial class CostСalculationPage : ContentPage
     {
         if (int.TryParse(e.NewTextValue, out int count))
         {
+            if (count < 0)
+            {
+                _ = DisplayAlert("Alert", "Вы уверины в том что ваше колличество менеджеров меньше нуля?", "OK");
+                return;
+            }
             costСalculationModel.Count = count;
         }
         else
@@ -72,6 +85,11 @@ public partial class CostСalculationPage : ContentPage
     {
         if (double.TryParse(e.NewTextValue, out double conversion))
         {
+            if (conversion < 0)
+            {
+                _ = DisplayAlert("Alert", "Вы уверины в том что конверсия меньше нуля?", "OK");
+                return;
+            }
             costСalculationModel.Conversion = conversion;
         }
         else
@@ -85,6 +103,11 @@ public partial class CostСalculationPage : ContentPage
     {
         if (double.TryParse(e.NewTextValue, out double mopMonthlyRevenue))
         {
+            if (mopMonthlyRevenue < 0)
+            {
+                _ = DisplayAlert("Alert", "Вы уверины в том что прибыль от одного менеджера меньше нуля?", "OK");
+                return;
+            }
             costСalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
         }
         else
@@ -92,5 +115,22 @@ public partial class CostСalculationPage : ContentPage
             _ = DisplayAlert("Alert", "Повторите ввод выручки на одного MOПa", "OK");
         }
 
+    }
+
+    private void OperatingProfit_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (double.TryParse(e.NewTextValue, out double operatingProfit))
+        {
+            if (operatingProfit < 0)
+            {
+                _ = DisplayAlert("Alert", "Вы уверины в том что операционная прибыль меньше нуля?", "OK");
+                return;
+            }
+            costСalculationModel.OperatingProfit = operatingProfit;
+        }
+        else
+        {
+            _ = DisplayAlert("Alert", "Повторите ввод операционной прибыли", "OK");
+        }
     }
 }

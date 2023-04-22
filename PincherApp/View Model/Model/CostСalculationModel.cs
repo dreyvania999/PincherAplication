@@ -1,4 +1,5 @@
 ﻿using PincherApp.Core.Classes;
+using PincherApp.Core.StaticClasses;
 using System.ComponentModel;
 
 namespace PincherApp
@@ -11,15 +12,15 @@ namespace PincherApp
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public List<BaseItem> BiznessType = GoogleSheetsHelper.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!F2:H");
+        public List<BaseItem> BiznessType = GoogleSheetsHelper.GetInformItemsFromSpreadsheet(BaseProgrammInform.TableID, BaseProgrammInform.TableBysinessTypeRange);
 
-        public SalesInformation getSales { get; } = new();
+        public SalesInformation GetSales { get; } = new();
         public int Count
         {
-            get => getSales.Count;
+            get => GetSales.Count;
             set
             {
-                getSales.Count = value;
+                GetSales.Count = value;
                 OnPropertyChanged(nameof(Count));
                 OnPropertyChanged(nameof(RevenueYear));
             }
@@ -27,10 +28,10 @@ namespace PincherApp
 
         public double Conversion
         {
-            get => getSales.Conversion;
+            get => GetSales.Conversion;
             set
             {
-                getSales.Conversion = value;
+                GetSales.Conversion = value;
                 OnPropertyChanged(nameof(Conversion));
             }
         }
@@ -38,24 +39,23 @@ namespace PincherApp
 
         public double MopMonthlyRevenue
         {
-            get => getSales.MopMonthlyRevenue;
+            get => GetSales.MopMonthlyRevenue;
             set
             {
-                getSales.MopMonthlyRevenue = value;
+                GetSales.MopMonthlyRevenue = value;
                 OnPropertyChanged(nameof(MopMonthlyRevenue));
                 OnPropertyChanged(nameof(MopRevenueYear));
                 OnPropertyChanged(nameof(RevenueYear));
             }
         }
 
-        public double MopRevenueYear => getSales.MopRevenueYear;
+        public double MopRevenueYear => GetSales.MopRevenueYear;
 
-        public double RevenueYear => getSales.RevenueYear;
+        public double RevenueYear => GetSales.RevenueYear;
 
         public double OperatingProfit
         {
-            get => getSales.OperatingProfit;
-            set => getSales.OperatingProfit = value;
+            set => GetSales.OperatingProfit = value;
         }
     }
 }

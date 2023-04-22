@@ -20,7 +20,7 @@ public partial class ResultCalculation : ContentPage
 
         if (!success)
         {
-            // Если не удалось открыть сайт, выполните необходимые действия
+            await DisplayAlert("Alert", "Проблема с открытием сайта компании", "OK");
         }
     }
 }

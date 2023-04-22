@@ -51,8 +51,8 @@ namespace UnitTestProject
         public void Baseus()
         {
             BaseItem BM = new("3", "2", "1");
-            InformItem IM = BM as InformItem;
-            Assert.False(IM is BaseItem);
+            InformItem? IM = BM as InformItem;
+            Assert.False(IM is not null);
         }
     }
 }

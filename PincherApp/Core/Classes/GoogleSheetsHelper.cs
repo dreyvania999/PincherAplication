@@ -2,6 +2,7 @@
 using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
+using PincherApp.Core.StaticClasses;
 
 namespace PincherApp.Core.Classes
 {
@@ -10,7 +11,6 @@ namespace PincherApp.Core.Classes
     {
         public SheetsService Service { get; set; }
 
-        private const string APPLICATION_NAME = "PincherApp";
         private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets }; //Область применения 
 
         public GoogleSheetsHelper()
@@ -27,7 +27,7 @@ namespace PincherApp.Core.Classes
             Service = new SheetsService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = APPLICATION_NAME
+                ApplicationName = BaseProgrammInform.ProjectName
             });
         }
         /// <summary>
@@ -91,10 +91,10 @@ namespace PincherApp.Core.Classes
         /// <returns>Базовый обьеект который можно привести к необходимому виду</returns>
         public static List<BaseItem> GetInformItemsFromSpreadsheet(string spreadsheetId, string range)
         {
-            GoogleSheetsHelper sheetsHelper = new();
+
             try
             {
-                IList<IList<object>> values = sheetsHelper.GetSpreadsheetValues(spreadsheetId, range);
+                IList<IList<object>> values = BaseProgrammInform.sheetsHelper.GetSpreadsheetValues(spreadsheetId, range);
                 List<BaseItem> items = MapFromRangeData(values);
                 return items;
             }

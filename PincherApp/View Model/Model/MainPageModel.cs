@@ -1,4 +1,5 @@
 ﻿using PincherApp.Core.Classes;
+using PincherApp.Core.StaticClasses;
 using System.ComponentModel;
 
 namespace PincherApp
@@ -35,8 +36,8 @@ namespace PincherApp
         public MainPageModel()
         {
             _windowSize = new SizeInform();
-            LowerManager = new ManagerInorm("PincherApp.Resources.Images.lowermanager.png");
-            UpperManager = new ManagerInorm("PincherApp.Resources.Images.uppermanager.png");
+            LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
+            UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
         }
 
         public int CountLowerManagers

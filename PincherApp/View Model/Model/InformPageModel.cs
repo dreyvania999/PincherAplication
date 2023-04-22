@@ -1,4 +1,5 @@
 ﻿using PincherApp.Core.Classes;
+using PincherApp.Core.StaticClasses;
 
 namespace PincherApp
 {
@@ -7,8 +8,9 @@ namespace PincherApp
         internal readonly List<InformItem> InformItems;
         public InformPageModel()
         {
-            InformItems = ConvertType(GoogleSheetsHelper.GetInformItemsFromSpreadsheet("1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg", "Лист1!A2:C"));
+            InformItems = ConvertType(GoogleSheetsHelper.GetInformItemsFromSpreadsheet(BaseProgrammInform.TableID, BaseProgrammInform.TableInformItemRange));
         }
+
         /// <summary>
         /// Метод для перевода в необходимый тип итема
         /// </summary>
