@@ -23,4 +23,14 @@ public partial class ResultCalculation : ContentPage
             await DisplayAlert("Alert", "Проблема с открытием сайта компании", "OK");
         }
     }
+
+    private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Entry_TextChanged_1(object sender, TextChangedEventArgs e)
+    {
+
+    }
 }

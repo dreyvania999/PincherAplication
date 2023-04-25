@@ -1,5 +1,4 @@
 using PincherApp.Core.Classes;
-using System.Diagnostics.Metrics;
 
 namespace PincherApp;
 
@@ -53,14 +52,14 @@ public partial class CostСalculationPage : ContentPage
 
             if (count < 0)
             {
-                _ = DisplayAlert("Alert", "Вы уверины в том что ваше колличество менеджеров меньше нуля?", "OK");
+                _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
             costСalculationModel.Count = count;
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод колличества менеджеров", "OK");
+            _ = DisplayAlert("Alert", "Повторите ввод количества менеджеров", "OK");
         }
     }
 
@@ -70,14 +69,14 @@ public partial class CostСalculationPage : ContentPage
         {
             if (count < 0)
             {
-                _ = DisplayAlert("Alert", "Вы уверины в том что ваше колличество менеджеров меньше нуля?", "OK");
+                _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
             costСalculationModel.Count = count;
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод колличества менеджеров", "OK");
+            _ = DisplayAlert("Alert", "Повторите ввод количества менеджеров", "OK");
         }
     }
 
@@ -87,7 +86,7 @@ public partial class CostСalculationPage : ContentPage
         {
             if (conversion < 0)
             {
-                _ = DisplayAlert("Alert", "Вы уверины в том что конверсия меньше нуля?", "OK");
+                _ = DisplayAlert("Alert", "Вы уверены в том что конверсия меньше нуля?", "OK");
                 return;
             }
             costСalculationModel.Conversion = conversion;
@@ -105,7 +104,7 @@ public partial class CostСalculationPage : ContentPage
         {
             if (mopMonthlyRevenue < 0)
             {
-                _ = DisplayAlert("Alert", "Вы уверины в том что прибыль от одного менеджера меньше нуля?", "OK");
+                _ = DisplayAlert("Alert", "Вы уверены в том что прибыль от одного менеджера меньше нуля?", "OK");
                 return;
             }
             costСalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
@@ -123,7 +122,7 @@ public partial class CostСalculationPage : ContentPage
         {
             if (operatingProfit < 0)
             {
-                _ = DisplayAlert("Alert", "Вы уверины в том что операционная прибыль меньше нуля?", "OK");
+                _ = DisplayAlert("Alert", "Вы уверены в том что операционная прибыль меньше нуля?", "OK");
                 return;
             }
             costСalculationModel.OperatingProfit = operatingProfit;

@@ -9,7 +9,6 @@ namespace UnitTestProject
         [Fact]
         public void InitializeInformItem()
         {
-
             Assert.NotNull(new InformItem("3", "2", "1"));
         }
 

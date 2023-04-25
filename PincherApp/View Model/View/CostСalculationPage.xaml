@@ -4,7 +4,7 @@
              x:Class="PincherApp.CostСalculationPage"
              Title="CostСalculationPage">
     <ScrollView>
-        <Grid>
+        <Grid RowSpacing="10">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -28,11 +28,11 @@
 
             </Grid>
 
-            <StackLayout Grid.Row="1" Orientation="Vertical">
+            <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="5">
                 <StackLayout Background="#528FF8">
                     <Label Text="Ситуация на сегодня" TextColor="White"/>
                 </StackLayout>
-                <Grid>
+                <Grid RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -67,11 +67,11 @@
                 </Grid>
             </StackLayout>
 
-            <StackLayout Grid.Row="2" Orientation="Vertical">
+            <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="5">
                 <StackLayout Background="#528FF8">
                     <Label Text="Подробнее о бизнесе" TextColor="White"/>
                 </StackLayout>
-                <Grid>
+                <Grid RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -97,7 +97,7 @@
                 </Grid>
             </StackLayout>
 
-            <Button Grid.Row="3" x:Name="Calculate" Text="Рассчитать" Clicked="Calculate_Clicked"/>
+            <Button Margin="5,5,5,5" Grid.Row="3" x:Name="Calculate" Text="Рассчитать" Clicked="Calculate_Clicked"/>
 
         </Grid>
     </ScrollView>

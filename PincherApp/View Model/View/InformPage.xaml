@@ -7,34 +7,45 @@
     <!-- Основное содержимое страницы -->
     <ScrollView>
         <StackLayout Margin="10">
-            <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected" VerticalOptions="FillAndExpand">
-                <ListView.ItemTemplate >
+            <ListView x:Name="ListElement" ItemSelected="ListElement_ItemSelected" HasUnevenRows ="True">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid >
-
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-
-                                <Image Grid.Column="0" Source="{Binding PhotoPath}" Aspect="AspectFit" MaximumHeightRequest="150"/>
-
-                                <StackLayout Grid.Column="1" Orientation="Vertical" Padding="10,0,0,0" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
-                                    <StackLayout IsVisible="{Binding IsActivate}">
-                                        <Label Text="{Binding Description}" FontSize="16" />
-                                    </StackLayout>
-                                </StackLayout>
-
+                                <Image Grid.RowSpan="2"
+                           Source="{Binding PhotoPath}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                                <Label Grid.Column="1"
+                           Text="{Binding Title}"
+                           FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Description}"
+                           IsVisible="{Binding IsActivate}"
+                           FontAttributes="Italic"
+                           VerticalOptions="End"
+                           LineBreakMode="WordWrap" />
+                                <!-- Используем свойство LineBreakMode из пространства имен Microsoft.Maui.Controls -->
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <StackLayout  Orientation="Horizontal">
-                <Label Text="Просичтать окупаемость?"  />
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Просчитать окупаемость?"  />
                 <Button Text="Конечно!" Clicked="Button_Clicked" />
             </StackLayout>
         </StackLayout>

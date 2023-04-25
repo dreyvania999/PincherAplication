@@ -14,7 +14,7 @@ namespace PincherApp.Core.StaticClasses
 
         public static readonly string TableBysinessTypeRange = "Лист2!A2:C";
 
-        public static readonly string CostTableRange = "Лист2!A2:C";
+        public static readonly string CostTableRange = "Лист3!A2:A2";
 
         public static readonly string UpperManagerImagePath = "PincherApp.Resources.Images.uppermanager.png";
 
