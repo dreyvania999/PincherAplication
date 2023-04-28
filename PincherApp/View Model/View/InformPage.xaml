@@ -20,22 +20,25 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
+                                
                                 <Image Grid.RowSpan="2"
-                           Source="{Binding PhotoPath}"
-                           Aspect="AspectFill"
-                           HeightRequest="60"
-                           WidthRequest="60" />
+                                   Source="{Binding PhotoPath}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60" />
+
                                 <Label Grid.Column="1"
-                           Text="{Binding Title}"
-                           FontAttributes="Bold" />
+                                   Text="{Binding Title}"
+                                   FontAttributes="Bold" />
+
                                 <Label Grid.Row="1"
-                           Grid.Column="1"
-                           Text="{Binding Description}"
-                           IsVisible="{Binding IsActivate}"
-                           FontAttributes="Italic"
-                           VerticalOptions="End"
-                           LineBreakMode="WordWrap" />
-                                <!-- Используем свойство LineBreakMode из пространства имен Microsoft.Maui.Controls -->
+                                   Grid.Column="1"
+                                   Text="{Binding Description}"
+                                   IsVisible="{Binding IsActivate}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"
+                                   LineBreakMode="WordWrap" />  
+
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

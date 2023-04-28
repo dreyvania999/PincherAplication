@@ -23,11 +23,11 @@
                 </Grid.ColumnDefinitions>
                 <!-- Лого -->
 
-                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" MaximumHeightRequest="100" MaximumWidthRequest="100">
+                <Image Grid.Column="0" Source="icon.png" Aspect="AspectFit" ToolTipProperties.Text="Перейти на сайт компании" MaximumHeightRequest="100" MaximumWidthRequest="100">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
-                </Image>
+                </Image> 
 
             </Grid>
 

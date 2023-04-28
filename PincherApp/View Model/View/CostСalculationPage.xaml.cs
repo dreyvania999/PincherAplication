@@ -59,7 +59,9 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод количества менеджеров", "OK");
+           Entry entry = sender as Entry;
+            ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
+            ToolTipProperties.TextProperty.(textField, true);
         }
     }
 
@@ -76,7 +78,8 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод количества менеджеров", "OK");
+            Entry entry = sender as Entry;
+            ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
         }
     }
 

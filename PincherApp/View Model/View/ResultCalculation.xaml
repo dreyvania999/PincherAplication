@@ -26,6 +26,7 @@
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
+                    
                 </Image>
 
             </Grid>
@@ -55,26 +56,26 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Label  Grid.Row="0" Grid.Column="0" Text="Конверсия c нами:"/>
+                    <Label  Grid.Row="0" Grid.Column="0" Text="Конверсия c нами:" ToolTipProperties.Text="То на сколько повысится конверсия при прослушке"/>
                     <Label Grid.Row="1" Grid.Column="0" Text="Месячная выручкка на МОПа:"/>
                     <Label Grid.Row="2" Grid.Column="0" Text="Годовая выручка на МОПа:"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Годовая выручка на отдел:"/>
 
                     <StackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
-                        <Label x:Name="Konversion" TextDecorations="Strikethrough" Text="{Binding Conversion}" />
-                        <Label x:Name="NewKonversion"  Text="{Binding NewConversion}" />
+                        <Label x:Name="Konversion" TextDecorations="Strikethrough" Text="{Binding Conversion}" ToolTipProperties.Text="Старое значение"/>
+                        <Label x:Name="NewKonversion"  Text="{Binding NewConversion}" ToolTipProperties.Text="Новое значение" />
                     </StackLayout>
                     <StackLayout  Grid.Row="1" Grid.Column="1" Spacing="5">
-                        <Label x:Name="MOPRevenue" TextDecorations="Strikethrough" Text="{Binding MopMonthlyRevenue}" />
-                        <Label x:Name="NewMOPRevenue" Text="{Binding NewMopMonthlyRevenue}" />
+                        <Label x:Name="MOPRevenue" TextDecorations="Strikethrough" Text="{Binding MopMonthlyRevenue}" ToolTipProperties.Text="Старое значение" />
+                        <Label x:Name="NewMOPRevenue" Text="{Binding NewMopMonthlyRevenue}" ToolTipProperties.Text="Новое значение"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2" Grid.Column="1"  Spacing="5">
-                        <Label x:Name="MOPYearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}"/>
-                        <Label x:Name="NewMOPYearRevenue" Text="{Binding NewMOPRevenue}"/>
+                        <Label x:Name="MOPYearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}" ToolTipProperties.Text="Старое значение"/>
+                        <Label x:Name="NewMOPYearRevenue" Text="{Binding NewMOPRevenue}" ToolTipProperties.Text="Новое значение"/>
                     </StackLayout>
                     <StackLayout Grid.Row="3" Grid.Column="1"  Spacing="5">
-                        <Label x:Name="YearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}"/>
-                        <Label x:Name="NewYearRevenue" Text="{Binding NewYearRevenue}"/>
+                        <Label x:Name="YearRevenue" TextDecorations="Strikethrough" Text="{Binding YearRevenue}" ToolTipProperties.Text="Старое значение"/>
+                        <Label x:Name="NewYearRevenue" Text="{Binding NewYearRevenue}" ToolTipProperties.Text="Новое значение"/>
                     </StackLayout>
 
                 </Grid>
@@ -98,13 +99,16 @@
                     </Grid.ColumnDefinitions>
 
                     
-                    <Label Grid.Row="0" Grid.Column="0" Text="Дополнительная выручка в год:"/>
-                    <Label Grid.Row="1" Grid.Column="0" Text="Дополнительная операционная прибыль в год:"/>
-                    <Label Grid.Row="2" Grid.Column="0" Text="Итоговая прибыль:"/>
-                    <Label Grid.Row="3" Grid.Column="0" Text="ROI:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Дополнительная выручка в год:" ToolTipProperties.Text="То сколько вы получите при изменении конверсии"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Дополнительная операционная прибыль в год:" ToolTipProperties.Text="То сколько вы получите при изменении конверсии"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Итоговая прибыль:" ToolTipProperties.Text="Дополнительная операционная прибыль за вычетом наших услуг"/>
+                    <Label Grid.Row="3" Grid.Column="0" Text="ROI:" ToolTipProperties.Text="Показатель который используется для оценки эффективности инвестиций">
+ 
+                        
+                    </Label>
 
 
-                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding MoreYearProfit}" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding MoreYearProfit}" />
                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding YearProfit}" /> 
                     <Label Grid.Row="2" Grid.Column="1" Text="{Binding TotalProfit}" />
                     <Label Grid.Row="3" Grid.Column="1" Text="{Binding ROI}" />
@@ -133,12 +137,12 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Label Grid.Row="0" Grid.Column="0" Text="Стоимость прослушки 1 минуты:"/>
-                    <Label Grid.Row="1" Grid.Column="0" Text="Количество минут прослушки в день:"/>
-                    <Label Grid.Row="2" Grid.Column="0" Text="Среднее количество рабочих дней в месяц:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Стоимость прослушки 1 минуты:" ToolTipProperties.Text="Стоимость работы асессоров, аналитиков и проджект менеджера"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Количество минут прослушки в день:" ToolTipProperties.Text="Максимально релевантые данные по прослушке можно получить слушая четверть звонков"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Количество дней прослушки:" ToolTipProperties.Text="Среднее количество рабочих дней в месяц на менеджера"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Стоимость прошлушки 1 МОП в месяц:"/>
-                    <Label Grid.Row="4" Grid.Column="0" Text="Стоимость прослушки отдела в месяц:"/>
-                    <Label Grid.Row="5" Grid.Column="0" Text="Стоимость прослушки отдела на 3 месяца:"/>
+                    <Label Grid.Row="4" Grid.Column="0" Text="Стоимость прослушки отдела в месяц:" ToolTipProperties.Text="Минимальная стоимость прослушки 60 000 руб."/>
+                    <Label Grid.Row="5" Grid.Column="0" Text="Стоимость прослушки отдела на 3 месяца:" ToolTipProperties.Text="Время за которое отдел продаж покажет результаты"/>
 
 
                     <Label Grid.Row="0" Grid.Column="1" Text="{Binding OneMinuteCost}" />

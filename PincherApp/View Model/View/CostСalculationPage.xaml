@@ -47,9 +47,9 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Label Grid.Row="0" Grid.Column="0" Text="Кол-во МОП:"/>
-                    <Label Grid.Row="1" Grid.Column="0" Text="Конверсия:"/>
-                    <Label Grid.Row="2" Grid.Column="0" Text="Месячная выручкка на МОПа:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Кол-во МОП:" ToolTipProperties.Text="Количество менеджеров отдела продаж"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Конверсия:" ToolTipProperties.Text="Любой этап продажи конверсия в котором зависит от разговоров менеджеров"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Месячная выручкка на МОПа:" ToolTipProperties.Text="Выручка которую в среднем приносит 1 менеджер"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Годовая выручка на МОПа:"/>
                     <Label Grid.Row="4" Grid.Column="0" Text="Годовая выручка на отдел:"/>
 
@@ -83,8 +83,8 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <Label Grid.Row="0" Grid.Column="0" Text="Направленость бизнеса:"/>
-                    <Label Grid.Row="1" Grid.Column="0" Text="Парацент операционной прибыли:"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Направленость бизнеса:" ToolTipProperties.Text="Чем занимается ваша компания"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Працент операционной прибыли:" ToolTipProperties.Text="Сколько чистой прибыли вы получаете"/>
                     
                     
                     <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical">
