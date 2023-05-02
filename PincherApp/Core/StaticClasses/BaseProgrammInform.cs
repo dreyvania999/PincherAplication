@@ -10,7 +10,7 @@ namespace PincherApp.Core.StaticClasses
 
         public static readonly string TableID = "1BUby1LX8fTHxIpul70Tuo7l85lXYFS9IGHNccIXmaSg";
 
-        public static readonly string TableInformItemRange = "Лист1!A2:C";
+        public static readonly string TableInformItemRange = "Лист1!A2:D";
 
         public static readonly string TableBysinessTypeRange = "Лист2!A2:C";
 

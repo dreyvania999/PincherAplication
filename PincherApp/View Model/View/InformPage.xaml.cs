@@ -14,11 +14,18 @@ namespace PincherApp
             ListElement.ItemsSource = informPageModelmodel.InformItems;
         }
 
-        private void ListElement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListElement_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem is InformItem item)
             {
-                item.IsActivate = !item.IsActivate; // меняем значение свойства IsActivate
+
+                Uri websiteUri = new(item.sitePath);
+                bool success = await Launcher.TryOpenAsync(websiteUri);
+
+                if (!success)
+                {
+                    await DisplayAlert("Alert", "Проблема с открытием сайта компании", "OK");
+                }
                 ((ListView)sender).SelectedItem = null; // снимаем выделение
             }
         }

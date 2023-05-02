@@ -23,7 +23,7 @@ namespace PincherApp
 
             foreach (BaseItem item in baseItems)
             {
-                informItems.Add(new InformItem(item));
+                informItems.Add(item as InformItem);
             }
             return informItems;
         }

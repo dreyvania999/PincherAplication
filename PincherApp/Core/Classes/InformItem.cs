@@ -2,7 +2,7 @@
 
 namespace PincherApp.Core.Classes
 {
-    // Класс для отображения одного итема полученного из гугл таблиццы
+    // Класс для отображения одного итема полученного из гугл таблицы
     public class InformItem : BaseItem, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -14,6 +14,13 @@ namespace PincherApp.Core.Classes
          : base(PhotoPath, Title, Description)
         {
 
+            string[] s = Description.ToLower().Split("конверсия");
+            base.Description = s[0];
+            if (s.Length > 1)
+            {
+                Conversion = "Конверсия " + s[1];
+            }
+
         }
         public InformItem(BaseItem basic)
             : base(basic.PhotoPath, basic.Title, basic.Description)
@@ -21,20 +28,10 @@ namespace PincherApp.Core.Classes
             PhotoPath = basic.PhotoPath;
             Title = basic.Title;
             Description = basic.Description;
-
         }
 
-        private bool _isActivate = false;//поле для отображаения и скрытия дополнительного описания
-
-        public bool IsActivate
-        {
-            get => _isActivate;
-            set
-            {
-                _isActivate = value;
-                OnPropertyChanged(nameof(IsActivate));
-            }
-        }
+        public string sitePath { get; set; }
+        public string Conversion { get; set; }
 
     }
 }

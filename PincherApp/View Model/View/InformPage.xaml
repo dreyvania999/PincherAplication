@@ -23,21 +23,26 @@
                                 
                                 <Image Grid.RowSpan="2"
                                    Source="{Binding PhotoPath}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="60"
-                                   WidthRequest="60" />
+                                   Aspect="AspectFit"
+                                   HeightRequest="128"
+                                   WidthRequest="128" />
 
                                 <Label Grid.Column="1"
                                    Text="{Binding Title}"
                                    FontAttributes="Bold" />
 
-                                <Label Grid.Row="1"
-                                   Grid.Column="1"
-                                   Text="{Binding Description}"
-                                   IsVisible="{Binding IsActivate}"
-                                   FontAttributes="Italic"
-                                   VerticalOptions="End"
-                                   LineBreakMode="WordWrap" />  
+                                <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                                    <Label 
+                                       Text="{Binding Description}"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="End"
+                                       LineBreakMode="WordWrap" />
+                                    <Label 
+                                       Text="{Binding Conversion}"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="End"
+                                       LineBreakMode="WordWrap" />
+                                </StackLayout>
 
                             </Grid>
                         </ViewCell>

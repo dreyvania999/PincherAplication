@@ -73,11 +73,14 @@ namespace PincherApp.Core.Classes
             List<BaseItem> items = new();
             foreach (IList<object> value in values)
             {
-                BaseItem item = new(
+                InformItem item = new(
                     value[2].ToString(),
                     value[0].ToString(),
                     value[1].ToString());
-
+                if (values[0].Count==4)
+                {
+                    item.sitePath = value[3].ToString();
+                }
                 items.Add(item);
             }
             return items;

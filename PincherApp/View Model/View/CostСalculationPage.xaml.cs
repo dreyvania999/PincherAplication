@@ -61,7 +61,7 @@ public partial class CostСalculationPage : ContentPage
         {
            Entry entry = sender as Entry;
             ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
-            ToolTipProperties.TextProperty.(textField, true);
+            //ToolTipProperties.TextProperty.(textField, true);
         }
     }
 
