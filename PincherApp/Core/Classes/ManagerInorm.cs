@@ -35,6 +35,7 @@ namespace PincherApp.Core.Classes
             CurrentHeight = Height;
         }
 
+        public bool Visibility { get; set; }
 
     }
 }

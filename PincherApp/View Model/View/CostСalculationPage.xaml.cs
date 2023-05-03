@@ -4,16 +4,16 @@ namespace PincherApp;
 
 public partial class CostСalculationPage : ContentPage
 {
-    private readonly CostСalculationModel costСalculationModel;
+    private readonly CostСalculationModel costCalculationModel;
 
     private double growth;
     public CostСalculationPage()
     {
-        costСalculationModel = new CostСalculationModel();
+        costCalculationModel = new CostСalculationModel();
         InitializeComponent();
-        BindingContext = costСalculationModel; // установить контекст данных страницы
+        BindingContext = costCalculationModel; // установить контекст данных страницы
 
-        BusinessFocus.ItemsSource = costСalculationModel.BiznessType;
+        BusinessFocus.ItemsSource = costCalculationModel.BiznessType;
 
         BusinessFocus.ItemDisplayBinding = new Binding("Title");
 
@@ -31,7 +31,7 @@ public partial class CostСalculationPage : ContentPage
 
     private void Calculate_Clicked(object sender, EventArgs e)
     {
-        _ = Navigation.PushAsync(new ResultCalculation(costСalculationModel.GetSales, growth));
+        _ = Navigation.PushAsync(new ResultCalculation(costCalculationModel.GetSales, growth));
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -55,7 +55,7 @@ public partial class CostСalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
-            costСalculationModel.Count = count;
+            costCalculationModel.Count = count;
         }
         else
         {
@@ -74,7 +74,7 @@ public partial class CostСalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
-            costСalculationModel.Count = count;
+            costCalculationModel.Count = count;
         }
         else
         {
@@ -92,7 +92,7 @@ public partial class CostСalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что конверсия меньше нуля?", "OK");
                 return;
             }
-            costСalculationModel.Conversion = conversion;
+            costCalculationModel.Conversion = conversion;
         }
         else
         {
@@ -110,7 +110,7 @@ public partial class CostСalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что прибыль от одного менеджера меньше нуля?", "OK");
                 return;
             }
-            costСalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
+            costCalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
         }
         else
         {
@@ -128,7 +128,7 @@ public partial class CostСalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что операционная прибыль меньше нуля?", "OK");
                 return;
             }
-            costСalculationModel.OperatingProfit = operatingProfit;
+            costCalculationModel.OperatingProfit = operatingProfit;
         }
         else
         {

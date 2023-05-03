@@ -32,12 +32,14 @@ namespace PincherApp
         private readonly SizeInform _windowSize;
         internal ManagerInorm LowerManager;
         internal ManagerInorm UpperManager;
+        internal ManagerInorm Assessor;
 
         public MainPageModel()
         {
             _windowSize = new SizeInform();
             LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
             UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
+            Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
         }
 
         public int CountLowerManagers
@@ -58,6 +60,29 @@ namespace PincherApp
                     }
 
                     OnPropertyChanged(nameof(CountLowerManagers));
+                    UpdateOptimization();
+                }
+            }
+        }
+
+        public int CountAssessor
+        {
+            get => Assessor.Count;
+            set
+            {
+                if (Assessor.Count != value)
+                {
+                    Assessor.Count = value;
+                    if (_windowSize.CurrentHeight <= _windowSize.CurrentWidth / value)
+                    {
+                        Assessor.UpdateSize(_windowSize.CurrentHeight, _windowSize.CurrentHeight);
+                    }
+                    else
+                    {
+                        Assessor.UpdateSize(_windowSize.CurrentWidth / value, _windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
+                    }
+
+                    OnPropertyChanged(nameof(Assessor));
                     UpdateOptimization();
                 }
             }
@@ -86,6 +111,33 @@ namespace PincherApp
             }
         }
 
+        public bool AssesorVisibility
+        {
+            get => Assessor.Visibility;
+            set
+            {
+                Assessor.Visibility = value;
+                OnPropertyChanged(nameof(AssesorVisibility));
+            }
+            }
+        public bool LowerManagersVisibility
+        {
+            get => LowerManager.Visibility;
+            set
+            {
+                LowerManager.Visibility = value;
+            OnPropertyChanged(nameof(LowerManagersVisibility));
+            }
+}
+        public bool UpperManagersVisibility
+        {
+            get => UpperManager.Visibility;
+            set
+            {
+                UpperManager.Visibility = value;
+            OnPropertyChanged(nameof(UpperManagersVisibility));
+            }
+}
 
         public void UpdaneWindowSize(double height, double width)
         {

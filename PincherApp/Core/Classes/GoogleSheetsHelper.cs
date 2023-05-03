@@ -6,7 +6,7 @@ using PincherApp.Core.StaticClasses;
 
 namespace PincherApp.Core.Classes
 {
-    // Класс для работы с гугл таблиццами 
+    // Класс для работы с гугл таблицами 
     public class GoogleSheetsHelper
     {
         public SheetsService Service { get; set; }
@@ -49,9 +49,9 @@ namespace PincherApp.Core.Classes
         /// <summary>
         /// Получение информации  из таблицы
         /// </summary>
-        /// <param name="spreadsheetId">Идентификатор таблиццы</param>
+        /// <param name="spreadsheetId">Идентификатор таблицы</param>
         /// <param name="range"> массив значений из каких ячеек и страниц брать информацию</param>
-        /// <returns>Список (аналог таблиццы)</returns>
+        /// <returns>Список (аналог таблицы)</returns>
         public IList<IList<object>> GetSpreadsheetValues(string spreadsheetId, string range)
         {
             SpreadsheetsResource.ValuesResource.GetRequest request =
@@ -64,10 +64,10 @@ namespace PincherApp.Core.Classes
         }
 
         /// <summary>
-        /// Метод для преобразования обьектов в наш тип данных
+        /// Метод для преобразования объектов в наш тип данных
         /// </summary>
-        /// <param name="values">Список обьектов из гугл таблиццы </param>
-        /// <returns>Базовый обьеект который можно привести к необходимому виду</returns>
+        /// <param name="values">Список объектов из гугл таблицы </param>
+        /// <returns>Базовый объект который можно привести к необходимому виду</returns>
         public static List<BaseItem> MapFromRangeData(IList<IList<object>> values)
         {
             List<BaseItem> items = new();
@@ -87,11 +87,11 @@ namespace PincherApp.Core.Classes
         }
 
         /// <summary>
-        /// Метод для получения данных из табылинццы в нужном нам виде
+        /// Метод для получения данных из таблицы в нужном нам виде
         /// </summary>
-        /// <param name="spreadsheetId">Идентификатор таблиццы</param>
+        /// <param name="spreadsheetId">Идентификатор таблицы</param>
         /// <param name="range"> массив значений из каких ячеек и страниц брать информацию</param>
-        /// <returns>Базовый обьеект который можно привести к необходимому виду</returns>
+        /// <returns>Базовый объект который можно привести к необходимому виду</returns>
         public static List<BaseItem> GetInformItemsFromSpreadsheet(string spreadsheetId, string range)
         {
 

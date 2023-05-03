@@ -38,7 +38,7 @@ Clipboard.SetTextAsync("+79535599079");
         [Obsolete]
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат срабоатывающий после майн пейдж
+            _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
@@ -46,14 +46,14 @@ Clipboard.SetTextAsync("+79535599079");
         [Obsolete]
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат срабоатывающий после майн пейдж
+            _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountUpperManagers = (int)Math.Round(e.NewValue);
             SetPhoto(UpperManagers, _model.UpperManager);
         }
         /// <summary>
-        /// Метод который добавляет картинки в обьект 
+        /// Метод который добавляет картинки в объект 
         /// </summary>
-        /// <param name="managerLayout">Обьект в который будет добавляться фото</param>
+        /// <param name="managerLayout">объект в который будет добавляться фото</param>
         /// <param name="manager">Менеджеры которых добавлять будем</param>
         [Obsolete]
         private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
@@ -93,5 +93,12 @@ Clipboard.SetTextAsync("+79535599079");
                 await DisplayAlert("Alert", "Проблема с открытием сайта компании", "OK");
             }
         }
+
+        private void AssesorSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }
