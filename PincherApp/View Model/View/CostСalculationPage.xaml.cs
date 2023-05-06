@@ -60,6 +60,7 @@ public partial class CostСalculationPage : ContentPage
         else
         {
            Entry entry = sender as Entry;
+            entry.TextColor= Entry.TextColor.Red;
             ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
             //ToolTipProperties.TextProperty.(textField, true);
         }
@@ -96,7 +97,8 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод конверсии", "OK");
+            Entry entry = sender as Entry;
+            ToolTipProperties.SetText(entry, "Повторите ввод конверсии");
         }
 
     }
@@ -114,7 +116,8 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод выручки на одного MOПa", "OK");
+            Entry entry = sender as Entry;
+            ToolTipProperties.SetText(entry, "Повторите ввод выручки на одного MOПa");
         }
 
     }
@@ -132,7 +135,8 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-            _ = DisplayAlert("Alert", "Повторите ввод операционной прибыли", "OK");
+            Entry entry = sender as Entry;
+            ToolTipProperties.SetText(entry, "Повторите ввод операционной прибыли");
         }
     }
 }
