@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace PincherApp;
+﻿namespace PincherApp;
 
 public static class MauiProgram
 {

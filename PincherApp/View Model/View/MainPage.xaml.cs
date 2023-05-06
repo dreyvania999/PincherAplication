@@ -1,4 +1,5 @@
 ﻿using PincherApp.Core.Classes;
+using PincherApp.Core.StaticClasses;
 
 namespace PincherApp
 {
@@ -16,17 +17,17 @@ namespace PincherApp
             {
                 Command = new Command(() =>
                 {
-#if WINDOWS
-DisplayAlert("Alert", "К сожалению нет возможности получть доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
-Clipboard.SetTextAsync("+79535599079");
+#if WINDOWS || MACCATALYST
+DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
+Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
 #endif
                     if (PhoneDialer.Default.IsSupported)
                     {
-                        PhoneDialer.Default.Open("+79535599079");
+                        PhoneDialer.Default.Open(BaseProgrammInform.CompanyPhone);
                     }
                     else
                     {
-                        DisplayAlert("Alert", "К сожалению нет возможности получть доступ к телефону", "OK");
+                        DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону", "OK");
                     }
                 })
             });
@@ -80,7 +81,7 @@ Clipboard.SetTextAsync("+79535599079");
 
         private void ConsultationButton_Clicked(object sender, EventArgs e)
         {
-            _ = Navigation.PushAsync(new CostСalculationPage());
+            _ = Navigation.PushAsync(new CostCalculationPage());
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

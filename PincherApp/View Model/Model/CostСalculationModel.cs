@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace PincherApp
 {
-    internal class CostСalculationModel : INotifyPropertyChanged
+    internal class CostCalculationModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public virtual void OnPropertyChanged(string propertyName)
@@ -12,7 +12,7 @@ namespace PincherApp
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public List<BaseItem> BiznessType = GoogleSheetsHelper.GetInformItemsFromSpreadsheet(BaseProgrammInform.TableID, BaseProgrammInform.TableBysinessTypeRange);
+        public List<BaseItem> BysinesType = GoogleSheetsHelper.GetInformItemsFromSpreadsheet(BaseProgrammInform.TableID, BaseProgrammInform.TableBysinessTypeRange);
 
         public SalesInformation GetSales { get; } = new();
         public int Count
@@ -57,5 +57,7 @@ namespace PincherApp
         {
             set => GetSales.OperatingProfit = value;
         }
+
+       
     }
 }

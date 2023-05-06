@@ -77,7 +77,7 @@ namespace PincherApp.Core.Classes
                     value[2].ToString(),
                     value[0].ToString(),
                     value[1].ToString());
-                if (values[0].Count==4)
+                if (values[0].Count == 4)
                 {
                     item.sitePath = value[3].ToString();
                 }

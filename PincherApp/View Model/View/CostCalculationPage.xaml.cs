@@ -1,19 +1,24 @@
+using CommunityToolkit.Maui.Views;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using CommunityToolkit.Maui;
+
 using PincherApp.Core.Classes;
 
 namespace PincherApp;
 
-public partial class CostСalculationPage : ContentPage
+public partial class CostCalculationPage : ContentPage
 {
-    private readonly CostСalculationModel costCalculationModel;
+    private readonly CostCalculationModel costCalculationModel;
 
-    private double growth;
-    public CostСalculationPage()
+    private double growth = 0;
+    public CostCalculationPage()
     {
-        costCalculationModel = new CostСalculationModel();
+        costCalculationModel = new CostCalculationModel();
         InitializeComponent();
         BindingContext = costCalculationModel; // установить контекст данных страницы
 
-        BusinessFocus.ItemsSource = costCalculationModel.BiznessType;
+        BusinessFocus.ItemsSource = costCalculationModel.BysinesType;
 
         BusinessFocus.ItemDisplayBinding = new Binding("Title");
 
@@ -29,9 +34,16 @@ public partial class CostСalculationPage : ContentPage
         }
     }
 
-    private void Calculate_Clicked(object sender, EventArgs e)
+    private async void Calculate_Clicked(object sender, EventArgs e)
     {
-        _ = Navigation.PushAsync(new ResultCalculation(costCalculationModel.GetSales, growth));
+        if (!IsNormalInformation())
+        {
+            await DisplayAlert("Alert", "Заполните все поля пожалуйста!", "OK");
+        }
+        else
+        {
+            _ = Navigation.PushAsync(new ResultCalculation(costCalculationModel.GetSales, growth));
+        }
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -59,10 +71,10 @@ public partial class CostСalculationPage : ContentPage
         }
         else
         {
-           Entry entry = sender as Entry;
-            entry.TextColor= Entry.TextColor.Red;
+            Entry entry = sender as Entry;
+            Color с = new(255, 0, 0);
+            entry.TextColor = с;
             ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
-            //ToolTipProperties.TextProperty.(textField, true);
         }
     }
 
@@ -76,10 +88,15 @@ public partial class CostСalculationPage : ContentPage
                 return;
             }
             costCalculationModel.Count = count;
+            Entry entry = sender as Entry;
+            Color с = new(255, 255, 255);
+            entry.TextColor = с;
         }
         else
         {
             Entry entry = sender as Entry;
+            Color с = new(255, 0, 0);
+            entry.TextColor = с;
             ToolTipProperties.SetText(entry, "Повторите ввод количества менеджеров");
         }
     }
@@ -98,6 +115,8 @@ public partial class CostСalculationPage : ContentPage
         else
         {
             Entry entry = sender as Entry;
+            Color с = new(255, 0, 0);
+            entry.TextColor = с;
             ToolTipProperties.SetText(entry, "Повторите ввод конверсии");
         }
 
@@ -117,6 +136,8 @@ public partial class CostСalculationPage : ContentPage
         else
         {
             Entry entry = sender as Entry;
+            Color с = new(255, 0, 0);
+            entry.TextColor = с;
             ToolTipProperties.SetText(entry, "Повторите ввод выручки на одного MOПa");
         }
 
@@ -136,7 +157,82 @@ public partial class CostСalculationPage : ContentPage
         else
         {
             Entry entry = sender as Entry;
+            Color с = new(255, 0, 0);
+            entry.TextColor = с;
             ToolTipProperties.SetText(entry, "Повторите ввод операционной прибыли");
         }
     }
+
+    private bool IsNormalInformation()
+    {
+        IEnumerable<Entry> allEntries = ParentElenent.Children.OfType<Entry>();
+
+        foreach (Entry entry in allEntries)
+        {
+            // Обработка каждого элемента Entry
+            if (entry.Text == null)
+            {
+                return false;
+            }
+        }
+        return growth != 0;
+    }
+
+    private async void OnLabelTapped(object sender, EventArgs e)
+    {
+        var popup = new Popup();
+
+        var label1 = new Label
+        {
+            Text = "Введите количество людей, приходящих в компанию со всех источников рекламы:",
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+        var entry1 = new Entry
+        {
+            Keyboard = Keyboard.Numeric,
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+
+        var label2 = new Label
+        {
+            Text = "Введите количество людей, совершающих покупку:",
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+        var entry2 = new Entry
+        {
+            Keyboard = Keyboard.Numeric,
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+
+        var button = new Button
+        {
+            Text = "Сохранить",
+            FontSize = 18
+        };
+        button.Clicked += (s, args) =>
+        {
+            // Сохраняем введенные значения
+            var peopleCount = int.Parse(entry1.Text);
+            var purchaseCount = int.Parse(entry2.Text);
+
+            // Закрываем всплывающее окно
+            popup.Close();
+        };
+
+        var stackLayout = new StackLayout
+        {
+            Padding = new Thickness(20),
+            Children = { label1, entry1, label2, entry2, button }
+        };
+
+        popup.Content = stackLayout;
+
+        await PopupExtensions.ShowPopupAsync<Popup>(this, popup);
+    }
+
+
 }

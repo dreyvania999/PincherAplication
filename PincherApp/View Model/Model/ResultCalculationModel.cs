@@ -85,8 +85,8 @@ namespace PincherApp
         public double ROI => Math.Round(CalculateROI(YearProfit, PartCost));
 
         public double CalculateROI(double income, double expenses)
-        { 
-            return (income / expenses * 100.0);
+        {
+            return income / expenses * 100.0;
         }
     }
 }
