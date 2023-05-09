@@ -25,9 +25,41 @@ namespace PincherApp
                 }
             }
         }
-        private void UpdateOptimization()
+
+        public string LostedTime
+        {
+            get
+            {
+                return LostedTime;
+            }
+            set
+            {
+                LostedTime = value;
+                OnPropertyChanged(nameof(LostedTime));
+            }
+        }
+        private void UpdateTimeOptimization()
         {
             Optimization = UpperManager.Count != 0 && (LowerManager.Count / UpperManager.Count) > 5;
+
+            int lostTime;
+            
+            if (!_optimization)
+            {
+                lostTime = LowerManager.Count * 25; //количество времени на прослушку если у РОПов нет перегрузки 
+            }
+            else
+            {
+                lostTime= (LowerManager.Count*25)/100*(100+ ((LowerManager.Count / UpperManager.Count) *5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
+            }
+            if (Assessor.Visibility)
+            {
+                lostTime -= 2 * lostTime / 3;
+            }
+            lostTime += 50;//время на аналитику при настроенных программах для этого
+            lostTime += 20;//Время на планерку утром
+            LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + lostTime + " минут для поддержания качества работы в вашем отделе продаж";
+
         }
         private readonly SizeInform _windowSize;
         internal ManagerInorm LowerManager;
@@ -40,6 +72,7 @@ namespace PincherApp
             LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
             UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
             Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
+            LostedTime = "Здесь будет рассчитано количество времени на улучшение качества работы своими силами";
         }
 
         public int CountLowerManagers
@@ -60,7 +93,7 @@ namespace PincherApp
                     }
 
                     OnPropertyChanged(nameof(CountLowerManagers));
-                    UpdateOptimization();
+                    UpdateTimeOptimization();
                 }
             }
         }
@@ -83,7 +116,7 @@ namespace PincherApp
                     }
 
                     OnPropertyChanged(nameof(Assessor));
-                    UpdateOptimization();
+                    UpdateTimeOptimization();
                 }
             }
         }
@@ -106,7 +139,7 @@ namespace PincherApp
                     }
 
                     OnPropertyChanged(nameof(CountUpperManagers));
-                    UpdateOptimization();
+                    UpdateTimeOptimization();
                 }
             }
         }

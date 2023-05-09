@@ -34,9 +34,6 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
         }
 
 
-
-
-        [Obsolete]
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
@@ -44,7 +41,6 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
 
-        [Obsolete]
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
@@ -56,7 +52,6 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
         /// </summary>
         /// <param name="managerLayout">объект в который будет добавляться фото</param>
         /// <param name="manager">Менеджеры которых добавлять будем</param>
-        [Obsolete]
         private void SetPhoto(StackLayout managerLayout, ManagerInorm manager)
         {
             managerLayout.Children.Clear();
@@ -74,14 +69,14 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
             }
         }
 
-        private void SeeMoreButton_Clicked(object sender, EventArgs e)
+        private async void SeeMoreButton_Clicked(object sender, EventArgs e)
         {
-            _ = Navigation.PushAsync(new InformPage());
+            await Navigation.PushAsync(new InformPage());
         }
 
-        private void ConsultationButton_Clicked(object sender, EventArgs e)
+        private async void ConsultationButton_Clicked(object sender, EventArgs e)
         {
-            _ = Navigation.PushAsync(new CostCalculationPage());
+            await Navigation.PushAsync(new CostCalculationPage());
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -97,7 +92,8 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
 
         private void AssesorSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
+            _model.CountAssessor = (int)Math.Round(e.NewValue);
+            SetPhoto(Assesor, _model.Assessor);
         }
 
 

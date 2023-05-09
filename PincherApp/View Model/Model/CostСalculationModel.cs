@@ -58,6 +58,6 @@ namespace PincherApp
             set => GetSales.OperatingProfit = value;
         }
 
-       
+
     }
 }

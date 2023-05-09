@@ -1,7 +1,4 @@
 using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
-using CommunityToolkit.Maui;
 
 using PincherApp.Core.Classes;
 
@@ -170,8 +167,9 @@ public partial class CostCalculationPage : ContentPage
         foreach (Entry entry in allEntries)
         {
             // Обработка каждого элемента Entry
-            if (entry.Text == null)
+            if (entry.Text == null&& double.TryParse(entry.Text,out  double tryer))
             {
+                _ = DisplayAlert("Alert", "Ошибка при вводе значений проверьте корректность введенных данных", "OK");
                 return false;
             }
         }
@@ -180,35 +178,35 @@ public partial class CostCalculationPage : ContentPage
 
     private async void OnLabelTapped(object sender, EventArgs e)
     {
-        var popup = new Popup();
+        Popup popup = new();
 
-        var label1 = new Label
+        Label label1 = new()
         {
             Text = "Введите количество людей, приходящих в компанию со всех источников рекламы:",
             FontSize = 18,
             Margin = new Thickness(0, 0, 0, 10)
         };
-        var entry1 = new Entry
+        Entry entry1 = new()
         {
             Keyboard = Keyboard.Numeric,
             FontSize = 18,
             Margin = new Thickness(0, 0, 0, 10)
         };
 
-        var label2 = new Label
+        Label label2 = new()
         {
             Text = "Введите количество людей, совершающих покупку:",
             FontSize = 18,
             Margin = new Thickness(0, 0, 0, 10)
         };
-        var entry2 = new Entry
+        Entry entry2 = new()
         {
             Keyboard = Keyboard.Numeric,
             FontSize = 18,
             Margin = new Thickness(0, 0, 0, 10)
         };
 
-        var button = new Button
+        Button button = new()
         {
             Text = "Сохранить",
             FontSize = 18
@@ -216,14 +214,14 @@ public partial class CostCalculationPage : ContentPage
         button.Clicked += (s, args) =>
         {
             // Сохраняем введенные значения
-            var peopleCount = int.Parse(entry1.Text);
-            var purchaseCount = int.Parse(entry2.Text);
+            int peopleCount = int.Parse(entry1.Text);
+            int purchaseCount = int.Parse(entry2.Text);
 
             // Закрываем всплывающее окно
             popup.Close();
         };
 
-        var stackLayout = new StackLayout
+        StackLayout stackLayout = new()
         {
             Padding = new Thickness(20),
             Children = { label1, entry1, label2, entry2, button }
@@ -231,7 +229,7 @@ public partial class CostCalculationPage : ContentPage
 
         popup.Content = stackLayout;
 
-        await PopupExtensions.ShowPopupAsync<Popup>(this, popup);
+        _ = await PopupExtensions.ShowPopupAsync<Popup>(this, popup);
     }
 
 
