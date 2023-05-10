@@ -249,7 +249,7 @@ public partial class CostCalculationPage : ContentPage
         if (popup.Result.Result!=null&& popup.Result.Result.ToString() != "")
         {
             string[] str = popup.Result.Result.ToString().Split(",");
-            costCalculationModel.Conversion = (Convert.ToInt32(str[0]) / Convert.ToInt32(str[1]))*100;
+            costCalculationModel.Conversion = (Convert.ToDouble(str[0]) / Convert.ToDouble(str[1]))*100;
         }
         
     }
