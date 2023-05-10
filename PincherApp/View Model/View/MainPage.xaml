@@ -88,9 +88,9 @@
                         </StackLayout>
             </StackLayout>
             <StackLayout Grid.Row="8" Grid.Column="0" >
-            <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа в отделе очень не оптимизированна" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа в отделе крайне не оптимизированна" HorizontalOptions="CenterAndExpand" />
                 <Label x:Name="LostedTimes" Text="{Binding LostedTime}" HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="SeeMoreButton" Text="Способы повышения качества продаж" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
+            <Button x:Name="SeeMoreButton" Text="Наши кейсы" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
             <Button x:Name="ConsultationButton" Text="Рассчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
             <Label x:Name="Call" Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
 </StackLayout>

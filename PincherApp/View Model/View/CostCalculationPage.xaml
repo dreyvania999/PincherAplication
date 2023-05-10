@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PincherApp.CostCalculationPage"
-             Title="CostCalculationPage">
+             >
     <ScrollView x:Name="ParentElenent">
         <Grid RowSpacing="10">
 
@@ -42,8 +42,8 @@
                     </Grid.RowDefinitions>
                     
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -57,9 +57,16 @@
                         <Entry x:Name="MOPCountEntry"  Placeholder="0" Text="{Binding Count}" TextChanged="MOPCountEntry_TextChanged" Keyboard="Numeric"  CharacterSpacing ="2" MaxLength="2"/>
                         <Stepper x:Name="MOPCount"  Minimum="0" Maximum="99" Increment="1" ValueChanged="MOPCount_ValueChanged" Value="{Binding Count}"/>
                     </FlexLayout>
-                    <FlexLayout Grid.Row="1" Grid.Column="1" >
-                    <Entry x:Name="Konversion" Grid.Row="1" Grid.Column="1" Placeholder="" TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="2"/>
-                    </FlexLayout>
+                    
+                     <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" Spacing ="10">
+                        <Entry x:Name="Konversion" VerticalOptions="Start"  TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="5"/>
+                            <Label Text="Не знаете конверсию?" VerticalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                       </StackLayout>
+                    
                     <Entry x:Name="MOPRevenue" Grid.Row="2" Grid.Column="1" Placeholder=""  TextChanged="MOPRevenue_TextChanged" CharacterSpacing ="2" Keyboard="Numeric"/>
                     <Label x:Name="MOPYearRevenue" Grid.Row="3" Grid.Column="1" CharacterSpacing ="2" Text="{Binding MopRevenueYear}"/>
                     <Label x:Name="YearRevenue" Grid.Row="4" Grid.Column="1" CharacterSpacing ="2" Text="{Binding RevenueYear}"/>
@@ -78,8 +85,8 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -91,7 +98,7 @@
                         <Picker x:Name="BusinessFocus"  SelectedIndexChanged="BusinessFocus_SelectedIndexChanged"/>
                         <Label x:Name="BusinessFocusNone" Text="Не нашли свою?">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>

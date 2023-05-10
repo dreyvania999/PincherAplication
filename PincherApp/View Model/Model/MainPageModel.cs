@@ -25,16 +25,16 @@ namespace PincherApp
                 }
             }
         }
-
-        public string LostedTime
+        private string _lostTime="Здесь будет рассчитано количество времени на улучшение качества работы своими силами";
+        public string LostedTime 
         {
             get
             {
-                return LostedTime;
+                return _lostTime;
             }
             set
             {
-                LostedTime = value;
+                _lostTime = value;
                 OnPropertyChanged(nameof(LostedTime));
             }
         }
@@ -72,7 +72,7 @@ namespace PincherApp
             LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
             UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
             Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
-            LostedTime = "Здесь будет рассчитано количество времени на улучшение качества работы своими силами";
+            
         }
 
         public int CountLowerManagers

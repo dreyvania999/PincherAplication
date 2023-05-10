@@ -64,7 +64,7 @@ public partial class CostCalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
-            costCalculationModel.Count = count;
+            
         }
         else
         {
@@ -107,6 +107,14 @@ public partial class CostCalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что конверсия меньше нуля?", "OK");
                 return;
             }
+            if (conversion >=99)
+            {
+                _ = DisplayAlert("Alert", "Вы уверены в том что конверсия больше 99?", "OK");
+                return;
+            }
+            Entry entry = sender as Entry;
+            Color с = new(255, 255, 255);
+            entry.TextColor = с;
             costCalculationModel.Conversion = conversion;
         }
         else
@@ -129,6 +137,9 @@ public partial class CostCalculationPage : ContentPage
                 return;
             }
             costCalculationModel.MopMonthlyRevenue = mopMonthlyRevenue;
+            Entry entry = sender as Entry;
+            Color с = new(255, 255, 255);
+            entry.TextColor = с;
         }
         else
         {
@@ -149,6 +160,9 @@ public partial class CostCalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что операционная прибыль меньше нуля?", "OK");
                 return;
             }
+            Entry entry = sender as Entry;
+            Color с = new(255, 255, 255);
+            entry.TextColor = с;
             costCalculationModel.OperatingProfit = operatingProfit;
         }
         else
@@ -178,7 +192,7 @@ public partial class CostCalculationPage : ContentPage
 
     private async void OnLabelTapped(object sender, EventArgs e)
     {
-        Popup popup = new();
+        Popup popup = new Popup();
 
         Label label1 = new()
         {
@@ -216,21 +230,76 @@ public partial class CostCalculationPage : ContentPage
             // Сохраняем введенные значения
             int peopleCount = int.Parse(entry1.Text);
             int purchaseCount = int.Parse(entry2.Text);
-
+            string inform = peopleCount +","+purchaseCount;
             // Закрываем всплывающее окно
-            popup.Close();
+            popup.Close(result: inform);
         };
 
         StackLayout stackLayout = new()
         {
+            Background = Color.FromRgba(0, 0, 0, 0),
             Padding = new Thickness(20),
             Children = { label1, entry1, label2, entry2, button }
         };
-
+        popup.VerticalOptions = Microsoft.Maui.Primitives.LayoutAlignment.Center;
+        popup.Size = new Size(Window.Width*6/7, Window.Height/2); 
         popup.Content = stackLayout;
 
-        _ = await PopupExtensions.ShowPopupAsync<Popup>(this, popup);
+        await this.ShowPopupAsync<Popup>(popup);
+        if (popup.Result.Result!=null&& popup.Result.Result.ToString() != "")
+        {
+            string[] str = popup.Result.Result.ToString().Split(",");
+            costCalculationModel.Conversion = (Convert.ToInt32(str[0]) / Convert.ToInt32(str[1]))*100;
+        }
+        
     }
 
+    private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)
+    {
+        Popup popup = new Popup();
 
+        Label label1 = new()
+        {
+            Text = "На сколько вырастет конверсия по вашим ощущениям при внедрении отдела контроля качества?",
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+        Entry entry1 = new()
+        {
+            Keyboard = Keyboard.Numeric,
+            FontSize = 18,
+            Margin = new Thickness(0, 0, 0, 10)
+        };
+
+      
+        Button button = new()
+        {
+            Text = "Сохранить",
+            FontSize = 18
+        };
+        button.Clicked += (s, args) =>
+        {
+            // Сохраняем введенные значения
+            int peopleCount = int.Parse(entry1.Text);
+            // Закрываем всплывающее окно
+            popup.Close(result: peopleCount);
+        };
+
+        StackLayout stackLayout = new()
+        {
+            Background = Color.FromRgba(0, 0, 0, 0),
+            Padding = new Thickness(20),
+            Children = { label1, entry1, button }
+        };
+        popup.VerticalOptions = Microsoft.Maui.Primitives.LayoutAlignment.Center;
+        popup.Size = new Size(Window.Width * 6 / 7, Window.Height / 2);
+        popup.Content = stackLayout;
+
+        await this.ShowPopupAsync<Popup>(popup);
+
+        if (popup.Result.Result != null && popup.Result.Result.ToString() != "")
+        {
+            growth = Convert.ToInt32(popup.Result.Result.ToString()) ;
+        }
+    }
 }

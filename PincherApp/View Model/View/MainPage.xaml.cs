@@ -31,6 +31,7 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
                     }
                 })
             });
+           
         }
 
 
