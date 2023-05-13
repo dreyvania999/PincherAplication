@@ -52,14 +52,26 @@ namespace PincherApp
             {
                 lostTime= (LowerManager.Count*25)/100*(100+ ((LowerManager.Count / UpperManager.Count) *5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
             }
-            if (Assessor.Visibility)
+            if (Assessor.Count>0)
             {
-                lostTime -= 2 * lostTime / 3;
+                lostTime -= (lostTime / 5);
+                lostTime = lostTime - (100 + ((LowerManager.Count / Assessor.Count) * 5));
+            }
+            if (lostTime<=0)
+            {
+                lostTime = 0;
             }
             lostTime += 50;//время на аналитику при настроенных программах для этого
             lostTime += 20;//Время на планерку утром
-            LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + lostTime + " минут для поддержания качества работы в вашем отделе продаж";
 
+            if (!_optimization)
+            {
+                LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + lostTime + " минут для поддержания качества работы в вашем отделе продаж";
+            }
+            else
+            {
+                LostedTime = "Каждый день руководитель отдела продаж должен тратить " + lostTime / UpperManager.Count + " минут для поддержания качества работы в вашем отделе продаж";
+            }
         }
         private readonly SizeInform _windowSize;
         internal ManagerInorm LowerManager;
@@ -72,7 +84,8 @@ namespace PincherApp
             LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
             UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
             Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
-            
+            LowerManager.Count = 1;
+            UpperManager.Count=1;
         }
 
         public int CountLowerManagers
@@ -115,7 +128,7 @@ namespace PincherApp
                         Assessor.UpdateSize(_windowSize.CurrentWidth / value, _windowSize.CurrentHeight);//переписать размер(скорее всего не подойдет)
                     }
 
-                    OnPropertyChanged(nameof(Assessor));
+                    OnPropertyChanged(nameof(CountAssessor));
                     UpdateTimeOptimization();
                 }
             }

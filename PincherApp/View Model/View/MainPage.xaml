@@ -5,7 +5,7 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -37,38 +37,34 @@
             </Grid>
 
 
-            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
-                <CheckBox IsChecked="{Binding UpperManagersVisibility, Mode=TwoWay}"/>
-            <Label Text="Старшие менеджеры"/>
-                <CheckBox IsChecked="{Binding LowerManagersVisibility, Mode=TwoWay}"/>
-            <Label Text="Младшие менеджеры"/>
-                <CheckBox IsChecked="{Binding AssesorVisibility, Mode=TwoWay}" />
-            <Label Text="Асессоры"/>
-        </StackLayout>
-            <StackLayout Grid.Row="2" Grid.Column="0" x:Name="UpperManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
-                <!-- Картинки руководителей отдела продаж выводятся здесь -->
+            <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" Spacing="3">
+                <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Руководители отделов продаж">
+                    <CheckBox IsChecked="{Binding UpperManagersVisibility, Mode=TwoWay}"/>
+                    <Label Text="Старшие менеджеры"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Менеджеры совершающие звонки">
+                    <CheckBox IsChecked="{Binding LowerManagersVisibility, Mode=TwoWay}"/>
+                    <Label Text="Младшие менеджеры"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Люди прослушивающие звонки за младшими менеджерами">
+                    <CheckBox IsChecked="{Binding AssesorVisibility, Mode=TwoWay}" />
+                    <Label Text="Асессоры"/>
+                </StackLayout>
             </StackLayout>
+            
 
-            <StackLayout Grid.Row="3" Grid.Column="0" x:Name="LowerManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
-                <!-- Картинки менеджеров отдела продаж выводятся здесь -->
-            </StackLayout>
-
-            <StackLayout Grid.Row="4" Grid.Column="0" x:Name="Assesor" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
-                <!-- Картинки менеджеров отдела продаж выводятся здесь -->
-            </StackLayout>
-
-            <StackLayout Grid.Row="5" Grid.Column="0" x:Name="UpperManagersView" IsVisible="{Binding UpperManagersVisibility}">
+            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="7" x:Name="UpperManagersView" IsVisible="{Binding UpperManagersVisibility}">
                 <StackLayout >
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                         <Label Text="Количество старших менеджеров:" />
                         <Label Text="{Binding CountUpperManagers}"  />
                     </StackLayout>
-                    <Slider x:Name="UpperManagerSlider" Minimum="0" Maximum="15" ValueChanged="UpperManagerSlider_ValueChanged"/>
+                    <Slider x:Name="UpperManagerSlider" Minimum="1" Maximum="15" ValueChanged="UpperManagerSlider_ValueChanged"/>
                 </StackLayout>
             </StackLayout>
 
 
-            <StackLayout Grid.Row="6" Grid.Column="0" x:Name="LowerManagersView" IsVisible="{Binding LowerManagersVisibility}">
+            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="7" x:Name="LowerManagersView" IsVisible="{Binding LowerManagersVisibility}">
                     <StackLayout >
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                             <Label Text="Количество младших менеджеров:" />
@@ -78,22 +74,33 @@
                     </StackLayout>
             </StackLayout>
 
-            <StackLayout Grid.Row="7" Grid.Column="0" x:Name="AssessorView" IsVisible="{Binding AssesorVisibility}">
+            <StackLayout Grid.Row="4" Grid.Column="0" Spacing="7" x:Name="AssessorView" IsVisible="{Binding AssesorVisibility}">
                         <StackLayout >
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                                <Label Text="Асессоров:" />
+                        <Label Text="Количество младших менеджеров:" />
                         <Label Text="{Binding CountAssessor}"  />
-                            </StackLayout>
+                    </StackLayout>
                     <Slider x:Name="AssessorSlider" Minimum="1" Maximum="30"  ValueChanged="AssesorSlider_ValueChanged"/>
                         </StackLayout>
             </StackLayout>
-            <StackLayout Grid.Row="8" Grid.Column="0" >
-            <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}" Text="Работа в отделе крайне не оптимизированна" HorizontalOptions="CenterAndExpand" />
-                <Label x:Name="LostedTimes" Text="{Binding LostedTime}" HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="SeeMoreButton" Text="Наши кейсы" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
-            <Button x:Name="ConsultationButton" Text="Рассчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
-            <Label x:Name="Call" Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
+            <StackLayout Grid.Row="5" Grid.Column="0" Spacing="5" >
+                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}"  Text="Работа в отделе крайне не оптимизированна" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="LostedTimes" Text="{Binding LostedTime}"  HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="SeeMoreButton" MinimumWidthRequest="250" Text="Наши кейсы" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
+            <Button x:Name="ConsultationButton" MinimumWidthRequest="250" Text="Рассчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
+            <Label x:Name="Call"  Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
 </StackLayout>
+            <StackLayout Grid.Row="6" Grid.Column="0" x:Name="UpperManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
+                <!-- Картинки руководителей отдела продаж выводятся здесь -->
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" Grid.Column="0" x:Name="LowerManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
+                <!-- Картинки менеджеров отдела продаж выводятся здесь -->
+            </StackLayout>
+
+            <StackLayout Grid.Row="8" Grid.Column="0" x:Name="Assesor" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
+                <!-- Картинки менеджеров отдела продаж выводятся здесь -->
+            </StackLayout>
         </Grid>
 
     </ScrollView>

@@ -42,8 +42,8 @@
                     </Grid.RowDefinitions>
                     
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -55,11 +55,11 @@
 
                     <FlexLayout Grid.Row="0" Grid.Column="1" >
                         <Entry x:Name="MOPCountEntry"  Placeholder="0" Text="{Binding Count}" TextChanged="MOPCountEntry_TextChanged" Keyboard="Numeric"  CharacterSpacing ="2" MaxLength="2"/>
-                        <Stepper x:Name="MOPCount"  Minimum="0" Maximum="99" Increment="1" ValueChanged="MOPCount_ValueChanged" Value="{Binding Count}"/>
+                        <Stepper x:Name="MOPCount"  Minimum="0" Maximum="99" Increment="1" ValueChanged="MOPCount_ValueChanged" Value="{Binding Count}" MaximumWidthRequest="{OnPlatform Android=120, iOS=120,MacCatalyst=250,WinUI=250}"/>
                     </FlexLayout>
                     
                      <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" Spacing ="10">
-                        <Entry x:Name="Konversion" VerticalOptions="Start"  TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="5"/>
+                        <Entry x:Name="Konversion" Text="{Binding Conversion,Mode=OneWay}" VerticalOptions="Start"  TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="5"/>
                             <Label Text="Не знаете конверсию?" VerticalOptions="End">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnLabelTapped"/>
@@ -85,8 +85,8 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
 
 

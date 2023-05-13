@@ -227,9 +227,16 @@ public partial class CostCalculationPage : ContentPage
         };
         button.Clicked += (s, args) =>
         {
+            int peopleCount;
+            int purchaseCount;
             // Сохраняем введенные значения
-            int peopleCount = int.Parse(entry1.Text);
-            int purchaseCount = int.Parse(entry2.Text);
+            if (entry1.Text == null || entry1.Text == ""|| entry2.Text == null || entry2.Text == ""|| !int.TryParse(entry1.Text, out peopleCount) || !int.TryParse(entry2.Text, out purchaseCount))
+            {
+                DisplayAlert("Alert", "Проверьте заполнение полей", "OK");
+                return;
+            }
+           
+             
             string inform = peopleCount +","+purchaseCount;
             // Закрываем всплывающее окно
             popup.Close(result: inform);
@@ -249,7 +256,8 @@ public partial class CostCalculationPage : ContentPage
         if (popup.Result.Result!=null&& popup.Result.Result.ToString() != "")
         {
             string[] str = popup.Result.Result.ToString().Split(",");
-            costCalculationModel.Conversion = (Convert.ToDouble(str[0]) / Convert.ToDouble(str[1]))*100;
+            costCalculationModel.Conversion = (Convert.ToDouble(str[1])/Convert.ToDouble(str[0]))*100;
+            Konversion.Text = costCalculationModel.Conversion.ToString();
         }
         
     }
@@ -280,9 +288,15 @@ public partial class CostCalculationPage : ContentPage
         button.Clicked += (s, args) =>
         {
             // Сохраняем введенные значения
-            int peopleCount = int.Parse(entry1.Text);
+            int moreConversion;
+            if (entry1.Text==null|| entry1.Text=="" || !int.TryParse(entry1.Text, out moreConversion))
+            {
+                DisplayAlert("Alert", "Проверьте введённые значения", "OK");
+                return;
+            }
+            
             // Закрываем всплывающее окно
-            popup.Close(result: peopleCount);
+            popup.Close(result: moreConversion);
         };
 
         StackLayout stackLayout = new()
