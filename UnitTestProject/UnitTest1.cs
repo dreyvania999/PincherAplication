@@ -1,3 +1,4 @@
+using PincherApp;
 using PincherApp.Core.Classes;
 using PincherApp.Core.Interfase;
 
@@ -10,6 +11,29 @@ namespace UnitTestProject
         public void InitializeInformItem()
         {
             Assert.NotNull(new InformItem("3", "2", "1"));
+        }
+
+        [Fact]
+        public void TimeCalculator()
+        {
+            Assert.Equal(70, MainPageModel.UpdateTime(1, 0, 1, true));
+        }
+        [Fact]
+        public void TimeCalculatorNotEqual()
+        {
+            Assert.NotEqual(70, MainPageModel.UpdateTime(11, 11, 1, false));
+        }
+        [Fact]
+        public void RoiCalculator()
+        {
+            ResultCalculationModel resultModel = new();
+            Assert.Equal(1000, resultModel.CalculateROI(100000, 10000));
+        }
+        [Fact]
+        public void RoiCalculatorNotEqual()
+        {
+            ResultCalculationModel resultModel = new();
+            Assert.NotEqual(100, resultModel.CalculateROI(1000000, 10000));
         }
 
         [Fact]
@@ -27,7 +51,7 @@ namespace UnitTestProject
         [Fact]
         public void TestFileExists()
         {
-            //получаю путь к текущей дирректории и разбиваю его 
+            //получаю путь к текущей директории и разбиваю его 
             string[] strings = Directory.GetCurrentDirectory().Split('\\');
             string filePath = "";
             //—оставл€ю путь к файлу

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace PincherApp
 {
-    internal class ResultCalculationModel : INotifyPropertyChanged
+    public class ResultCalculationModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public virtual void OnPropertyChanged(string propertyName)
@@ -20,7 +20,10 @@ namespace PincherApp
             _sales = sales;
 
         }
+        public ResultCalculationModel()
+        {
 
+        }
         private readonly ResultCalculate _Resultsales;
 
         private readonly SalesInformation _sales;
@@ -77,13 +80,17 @@ namespace PincherApp
             }
         }
         public double MOPMonthCost => MinuteCount * BaseProgrammInform.OneMinuteCost * DayCount;
-        public double MonthPartCost => (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) > BaseProgrammInform.MinimumMonthCost ? (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) : BaseProgrammInform.MinimumMonthCost; //Стоимость за месяц на отдел не может быть меньше 60 000
+        public double MonthPartCost => GetCurrentCost(); //Стоимость за месяц на отдел не может быть меньше 60 000
         public double PartCost => MonthPartCost * 3;
         public double MoreYearProfit => _Resultsales.RevenueYear - _sales.RevenueYear;
         public double YearProfit => (_Resultsales.RevenueYear - _sales.RevenueYear) / 100 * _sales.OperatingProfit;
         public double TotalProfit => YearProfit - PartCost;
         public double ROI => Math.Round(CalculateROI(YearProfit, PartCost));
 
+        public double GetCurrentCost()
+        {
+            return (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) > BaseProgrammInform.MinimumMonthCost ? (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) : BaseProgrammInform.MinimumMonthCost;
+        }
         public double CalculateROI(double income, double expenses)
         {
             return income / expenses * 100.0;

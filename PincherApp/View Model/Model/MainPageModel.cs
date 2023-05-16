@@ -42,36 +42,40 @@ namespace PincherApp
         {
             Optimization = UpperManager.Count != 0 && (LowerManager.Count / UpperManager.Count) > 5;
 
-            int lostTime;
-            
             if (!_optimization)
             {
-                lostTime = LowerManager.Count * 25; //количество времени на прослушку если у РОПов нет перегрузки 
+                LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + UpdateTime(LowerManager.Count, Assessor.Count, UpperManager.Count, _optimization) + " минут для поддержания качества работы в вашем отделе продаж";
             }
             else
             {
-                lostTime= (LowerManager.Count*25)/100*(100+ ((LowerManager.Count / UpperManager.Count) *5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
+                LostedTime = "Каждый день руководитель отдела продаж должен тратить " + UpdateTime(LowerManager.Count, Assessor.Count,UpperManager.Count,_optimization) / UpperManager.Count + " минут для поддержания качества работы в вашем отделе продаж";
             }
-            if (Assessor.Count>0)
+        }
+        public static int UpdateTime( int lowerCount, int assessorCount,int upperCount,bool optimization)
+        {
+            int lostTime;
+
+            if (!optimization)
+            {
+                lostTime = lowerCount * 25; //количество времени на прослушку если у РОПов нет перегрузки 
+            }
+            else
+            {
+                lostTime = (lowerCount * 25) / 100 * (100 + ((lowerCount / upperCount) * 5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
+            }
+            if (assessorCount > 0)
             {
                 lostTime -= (lostTime / 5);
-                lostTime = lostTime - (100 + ((LowerManager.Count / Assessor.Count) * 5));
+                lostTime = lostTime - (100 + ((lowerCount / assessorCount) * 5));
             }
-            if (lostTime<=0)
+            if (lostTime <= 0)
             {
                 lostTime = 0;
             }
             lostTime += 50;//время на аналитику при настроенных программах для этого
             lostTime += 20;//Время на планерку утром
 
-            if (!_optimization)
-            {
-                LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + lostTime + " минут для поддержания качества работы в вашем отделе продаж";
-            }
-            else
-            {
-                LostedTime = "Каждый день руководитель отдела продаж должен тратить " + lostTime / UpperManager.Count + " минут для поддержания качества работы в вашем отделе продаж";
-            }
+            return lostTime;
         }
         private readonly SizeInform _windowSize;
         internal ManagerInorm LowerManager;
