@@ -3,6 +3,9 @@ using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using PincherApp.Core.StaticClasses;
+using PincherApp.Core.Classes;
+using PincherApp.Core.StaticClasses;
+using CommunityToolkit.Maui.Core;
 
 namespace PincherApp.Core.Classes
 {
@@ -15,7 +18,16 @@ namespace PincherApp.Core.Classes
 
         public GoogleSheetsHelper()
         {
-            InitializeService();
+            try
+            {
+                InitializeService();
+            }
+            catch (Exception)
+            {
+               //дописать сообщение дл пользователя
+                throw;
+            }
+            
         }
 
         /// <summary>
