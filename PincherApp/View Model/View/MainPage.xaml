@@ -44,9 +44,9 @@
                     <Label Text="Асессоры"/>
                 </StackLayout>
             </StackLayout>
-            
 
-            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="7" x:Name="UpperManagersView" >
+
+            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="7" x:Name="UpperManagersView" ToolTipProperties.Text="Руководители отделов продаж">
                 <StackLayout >
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                         <Label Text="Количество старших менеджеров:" />
@@ -57,7 +57,7 @@
             </StackLayout>
 
 
-            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="7" x:Name="LowerManagersView">
+            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="7" x:Name="LowerManagersView" ToolTipProperties.Text="Менеджеры совершающие звонки">
                     <StackLayout >
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                             <Label Text="Количество младших менеджеров:" />

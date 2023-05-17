@@ -29,23 +29,23 @@ namespace PincherApp
         private readonly SalesInformation _sales;
         public int Count => _sales.Count;
 
-        public double Conversion => _sales.Conversion;
+        public double Conversion => Math.Round(_sales.Conversion);
 
 
-        public double MopMonthlyRevenue => _sales.MopMonthlyRevenue;
+        public double MopMonthlyRevenue => Math.Round(_sales.MopMonthlyRevenue);
 
-        public double MOPRevenue => _sales.MopRevenueYear;
+        public double MOPRevenue => Math.Round(_sales.MopRevenueYear);
 
-        public double YearRevenue => _sales.RevenueYear;
+        public double YearRevenue => Math.Round(_sales.RevenueYear);
 
-        public double NewConversion => _Resultsales.Conversion;
+        public double NewConversion => Math.Round(_Resultsales.Conversion);
 
 
-        public double NewMopMonthlyRevenue => _Resultsales.MopMonthlyRevenue;
+        public double NewMopMonthlyRevenue => Math.Round(_Resultsales.MopMonthlyRevenue);
 
-        public double NewMOPRevenue => _Resultsales.MopRevenueYear;
+        public double NewMOPRevenue => Math.Round(_Resultsales.MopRevenueYear);
 
-        public double NewYearRevenue => _Resultsales.RevenueYear;
+        public double NewYearRevenue => Math.Round(_Resultsales.RevenueYear);
 
         public double OneMinuteCost => BaseProgrammInform.OneMinuteCost;
 
@@ -82,18 +82,18 @@ namespace PincherApp
         public double MOPMonthCost => MinuteCount * BaseProgrammInform.OneMinuteCost * DayCount;
         public double MonthPartCost => GetCurrentCost(); //Стоимость за месяц на отдел не может быть меньше 60 000
         public double PartCost => MonthPartCost * 3;
-        public double MoreYearProfit => _Resultsales.RevenueYear - _sales.RevenueYear;
-        public double YearProfit => (_Resultsales.RevenueYear - _sales.RevenueYear) / 100 * _sales.OperatingProfit;
-        public double TotalProfit => YearProfit - PartCost;
+        public double MoreYearProfit => Math.Round( _Resultsales.RevenueYear - _sales.RevenueYear);
+        public double YearProfit => Math.Round((_Resultsales.RevenueYear - _sales.RevenueYear) / 100 * _sales.OperatingProfit);
+        public double TotalProfit => Math.Round(YearProfit - PartCost);
         public double ROI => Math.Round(CalculateROI(YearProfit, PartCost));
 
         public double GetCurrentCost()
         {
-            return (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) > BaseProgrammInform.MinimumMonthCost ? (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) : BaseProgrammInform.MinimumMonthCost;
+            return Math.Round((MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) > BaseProgrammInform.MinimumMonthCost ? (MinuteCount * BaseProgrammInform.OneMinuteCost * Count * DayCount) : BaseProgrammInform.MinimumMonthCost);
         }
         public double CalculateROI(double income, double expenses)
         {
-            return income / expenses * 100.0;
+            return Math.Round(income / expenses * 100.0);
         }
     }
 }

@@ -33,7 +33,7 @@
 
             <StackLayout Grid.Row="1" Orientation="Horizontal" Background="#528FF8" Spacing="5">
                 <Label Text="Средний прирост в вашей сфере:"/>
-                <Label Text="{Binding Prirost}" />
+                <Label Text="{Binding Growth}" />
                 <Label Text="%" />
             </StackLayout>
 
