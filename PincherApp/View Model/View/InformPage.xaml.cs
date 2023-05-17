@@ -19,7 +19,7 @@ namespace PincherApp
             if (e.SelectedItem is InformItem item)
             {
 
-                Uri websiteUri = new(item.sitePath);
+                Uri websiteUri = new(item.SitePath);
                 bool success = await Launcher.TryOpenAsync(websiteUri);
 
                 if (!success)

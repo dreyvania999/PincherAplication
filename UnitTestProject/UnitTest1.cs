@@ -5,7 +5,7 @@ using PincherApp.Core.Interfase;
 namespace UnitTestProject
 {
     public class UnitTest1
-    {  
+    {
 
         [Fact]
         public void InitializeInformItem()
@@ -37,7 +37,7 @@ namespace UnitTestProject
         }
 
         [Fact]
-        public void InterfasesWorckCorrectly()
+        public void InterfaceWorkCorrectly()
         {
             List<IManagers> lis = new()
             {
@@ -48,7 +48,7 @@ namespace UnitTestProject
             Assert.NotNull(lis);
         }
 
-       
+
 
         [Fact]
         public void ConverterBaseItemToInformItem()

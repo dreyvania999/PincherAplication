@@ -64,7 +64,7 @@ public partial class CostCalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что ваше количество менеджеров меньше нуля?", "OK");
                 return;
             }
-            
+
         }
         else
         {
@@ -98,7 +98,7 @@ public partial class CostCalculationPage : ContentPage
         }
     }
 
-    private void Konversion_TextChanged(object sender, TextChangedEventArgs e)
+    private void Conversion_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (double.TryParse(e.NewTextValue, out double conversion))
         {
@@ -107,7 +107,7 @@ public partial class CostCalculationPage : ContentPage
                 _ = DisplayAlert("Alert", "Вы уверены в том что конверсия меньше нуля?", "OK");
                 return;
             }
-            if (conversion >=99)
+            if (conversion >= 99)
             {
                 _ = DisplayAlert("Alert", "Вы уверены в том что конверсия больше 99?", "OK");
                 return;
@@ -181,7 +181,7 @@ public partial class CostCalculationPage : ContentPage
         foreach (Entry entry in allEntries)
         {
             // Обработка каждого элемента Entry
-            if (entry.Text == null&& double.TryParse(entry.Text,out  double tryer))
+            if (entry.Text == null && double.TryParse(entry.Text, out _))
             {
                 _ = DisplayAlert("Alert", "Ошибка при вводе значений проверьте корректность введенных данных", "OK");
                 return false;
@@ -192,7 +192,7 @@ public partial class CostCalculationPage : ContentPage
 
     private async void OnLabelTapped(object sender, EventArgs e)
     {
-        Popup popup = new Popup();
+        Popup popup = new();
 
         Label label1 = new()
         {
@@ -227,17 +227,15 @@ public partial class CostCalculationPage : ContentPage
         };
         button.Clicked += (s, args) =>
         {
-            int peopleCount;
-            int purchaseCount;
             // Сохраняем введенные значения
-            if (entry1.Text == null || entry1.Text == ""|| entry2.Text == null || entry2.Text == ""|| !int.TryParse(entry1.Text, out peopleCount) || !int.TryParse(entry2.Text, out purchaseCount))
+            if (entry1.Text == null || entry1.Text == "" || entry2.Text == null || entry2.Text == "" || !int.TryParse(entry1.Text, out int peopleCount) || !int.TryParse(entry2.Text, out int purchaseCount))
             {
-                DisplayAlert("Alert", "Проверьте заполнение полей", "OK");
+                _ = DisplayAlert("Alert", "Проверьте заполнение полей", "OK");
                 return;
             }
-           
-             
-            string inform = peopleCount +","+purchaseCount;
+
+
+            string inform = peopleCount + "," + purchaseCount;
             // Закрываем всплывающее окно
             popup.Close(result: inform);
         };
@@ -249,22 +247,22 @@ public partial class CostCalculationPage : ContentPage
             Children = { label1, entry1, label2, entry2, button }
         };
         popup.VerticalOptions = Microsoft.Maui.Primitives.LayoutAlignment.Center;
-        popup.Size = new Size(Window.Width*6/7, Window.Height/2); 
+        popup.Size = new Size(Window.Width * 6 / 7, Window.Height / 2);
         popup.Content = stackLayout;
 
-        await this.ShowPopupAsync<Popup>(popup);
-        if (popup.Result.Result!=null&& popup.Result.Result.ToString() != "")
+        _ = await this.ShowPopupAsync<Popup>(popup);
+        if (popup.Result.Result != null && popup.Result.Result.ToString() != "")
         {
             string[] str = popup.Result.Result.ToString().Split(",");
-            costCalculationModel.Conversion = (Convert.ToDouble(str[1])/Convert.ToDouble(str[0]))*100;
+            costCalculationModel.Conversion = Convert.ToDouble(str[1]) / Convert.ToDouble(str[0]) * 100;
             Konversion.Text = costCalculationModel.Conversion.ToString();
         }
-        
+
     }
 
     private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)
     {
-        Popup popup = new Popup();
+        Popup popup = new();
 
         Label label1 = new()
         {
@@ -279,7 +277,7 @@ public partial class CostCalculationPage : ContentPage
             Margin = new Thickness(0, 0, 0, 10)
         };
 
-      
+
         Button button = new()
         {
             Text = "Сохранить",
@@ -288,13 +286,12 @@ public partial class CostCalculationPage : ContentPage
         button.Clicked += (s, args) =>
         {
             // Сохраняем введенные значения
-            int moreConversion;
-            if (entry1.Text==null|| entry1.Text=="" || !int.TryParse(entry1.Text, out moreConversion))
+            if (entry1.Text == null || entry1.Text == "" || !int.TryParse(entry1.Text, out int moreConversion))
             {
-                DisplayAlert("Alert", "Проверьте введённые значения", "OK");
+                _ = DisplayAlert("Alert", "Проверьте введённые значения", "OK");
                 return;
             }
-            
+
             // Закрываем всплывающее окно
             popup.Close(result: moreConversion);
         };
@@ -309,11 +306,11 @@ public partial class CostCalculationPage : ContentPage
         popup.Size = new Size(Window.Width * 6 / 7, Window.Height / 2);
         popup.Content = stackLayout;
 
-        await this.ShowPopupAsync<Popup>(popup);
+        _ = await this.ShowPopupAsync<Popup>(popup);
 
         if (popup.Result.Result != null && popup.Result.Result.ToString() != "")
         {
-            growth = Convert.ToInt32(popup.Result.Result.ToString()) ;
+            growth = Convert.ToInt32(popup.Result.Result.ToString());
         }
     }
 }

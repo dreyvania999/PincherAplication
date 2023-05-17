@@ -25,13 +25,10 @@ namespace PincherApp
                 }
             }
         }
-        private string _lostTime="Здесь будет рассчитано количество времени на улучшение качества работы своими силами";
-        public string LostedTime 
+        private string _lostTime = "Здесь будет рассчитано количество времени на улучшение качества работы своими силами";
+        public string LostedTime
         {
-            get
-            {
-                return _lostTime;
-            }
+            get => _lostTime;
             set
             {
                 _lostTime = value;
@@ -42,16 +39,11 @@ namespace PincherApp
         {
             Optimization = UpperManager.Count != 0 && (LowerManager.Count / UpperManager.Count) > 5;
 
-            if (!_optimization)
-            {
-                LostedTime = "Каждый день вашим руководителям отдела продаж придется тратить " + UpdateTime(LowerManager.Count, Assessor.Count, UpperManager.Count, _optimization) + " минут для поддержания качества работы в вашем отделе продаж";
-            }
-            else
-            {
-                LostedTime = "Каждый день руководитель отдела продаж должен тратить " + UpdateTime(LowerManager.Count, Assessor.Count,UpperManager.Count,_optimization) / UpperManager.Count + " минут для поддержания качества работы в вашем отделе продаж";
-            }
+            LostedTime = !_optimization
+                ? "Каждый день вашим руководителям отдела продаж придется тратить " + UpdateTime(LowerManager.Count, Assessor.Count, UpperManager.Count, _optimization) + " минут для поддержания качества работы в вашем отделе продаж"
+                : "Каждый день руководитель отдела продаж должен тратить " + (UpdateTime(LowerManager.Count, Assessor.Count, UpperManager.Count, _optimization) / UpperManager.Count) + " минут для поддержания качества работы в вашем отделе продаж";
         }
-        public static int UpdateTime( int lowerCount, int assessorCount,int upperCount,bool optimization)
+        public static int UpdateTime(int lowerCount, int assessorCount, int upperCount, bool optimization)
         {
             int lostTime;
 
@@ -61,12 +53,12 @@ namespace PincherApp
             }
             else
             {
-                lostTime = (lowerCount * 25) / 100 * (100 + ((lowerCount / upperCount) * 5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
+                lostTime = lowerCount * 25 / 100 * (100 + (lowerCount / upperCount * 5)); //если роп перегружен то времени на каждого МОПа потребуется больше времени
             }
             if (assessorCount > 0)
             {
-                lostTime -= (lostTime / 5);
-                lostTime = lostTime - (100 + ((lowerCount / assessorCount) * 5));
+                lostTime -= lostTime / 5;
+                lostTime -= 100 + (lowerCount / assessorCount * 5);
             }
             if (lostTime <= 0)
             {
@@ -89,7 +81,7 @@ namespace PincherApp
             UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
             Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
             LowerManager.Count = 1;
-            UpperManager.Count=1;
+            UpperManager.Count = 1;
         }
 
         public int CountLowerManagers
@@ -161,13 +153,13 @@ namespace PincherApp
             }
         }
 
-        public bool AssesorVisibility
+        public bool AssessorVisibility
         {
             get => Assessor.Visibility;
             set
             {
                 Assessor.Visibility = value;
-                OnPropertyChanged(nameof(AssesorVisibility));
+                OnPropertyChanged(nameof(AssessorVisibility));
             }
         }
         public bool LowerManagersVisibility
@@ -189,7 +181,7 @@ namespace PincherApp
             }
         }
 
-        public void UpdaneWindowSize(double height, double width)
+        public void UpdateWindowSize(double height, double width)
         {
             _windowSize.UpdateSize(width - 10, height / 2);
         }

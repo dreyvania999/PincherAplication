@@ -18,8 +18,8 @@ namespace PincherApp
                 Command = new Command(() =>
                 {
 #if WINDOWS || MACCATALYST
-DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
-Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
+                    DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
+                    Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
 #endif
                     if (PhoneDialer.Default.IsSupported)
                     {
@@ -31,20 +31,20 @@ Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
                     }
                 })
             });
-           
+
         }
 
 
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
+            _model.UpdateWindowSize(LowerManagers.Window.Height, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
 
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdaneWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
+            _model.UpdateWindowSize(UpperManagers.Window.Height, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountUpperManagers = (int)Math.Round(e.NewValue);
             SetPhoto(UpperManagers, _model.UpperManager);
         }

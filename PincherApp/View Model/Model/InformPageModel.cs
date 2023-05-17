@@ -12,9 +12,9 @@ namespace PincherApp
         }
 
         /// <summary>
-        /// Метод для перевода в необходимый тип итема
+        /// Метод для перевода в необходимый тип объекта
         /// </summary>
-        /// <param name="baseItems">Список объектов в базовом типе итема </param>
+        /// <param name="baseItems">Список объектов в базовом типе объекта </param>
         /// <returns>Список итемов для вывода на экран</returns>
         private static List<InformItem> ConvertType(List<BaseItem> baseItems)
         {

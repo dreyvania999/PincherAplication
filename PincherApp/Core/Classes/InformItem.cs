@@ -2,7 +2,7 @@
 
 namespace PincherApp.Core.Classes
 {
-    // Класс для отображения одного итема полученного из гугл таблицы
+    // Класс для отображения одного объекта полученного из google таблицы
     public class InformItem : BaseItem, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,7 +30,7 @@ namespace PincherApp.Core.Classes
             Description = basic.Description;
         }
 
-        public string sitePath { get; set; }
+        public string SitePath { get; set; }
         public string Conversion { get; set; }
 
     }

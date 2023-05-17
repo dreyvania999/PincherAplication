@@ -11,12 +11,12 @@ namespace PincherApp
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public double Prirost { get; set; }
+        public double Growth { get; set; }
         public ResultCalculationModel(SalesInformation sales, double growth)
         {
 
             _Resultsales = new ResultCalculate(sales, growth);
-            Prirost = growth;
+            Growth = growth;
             _sales = sales;
 
         }

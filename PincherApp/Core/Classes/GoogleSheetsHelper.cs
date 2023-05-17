@@ -6,7 +6,7 @@ using PincherApp.Core.StaticClasses;
 
 namespace PincherApp.Core.Classes
 {
-    // Класс для работы с гугл таблицами 
+    // Класс для работы с google таблицами 
     public class GoogleSheetsHelper
     {
         public SheetsService Service { get; set; }
@@ -33,7 +33,7 @@ namespace PincherApp.Core.Classes
         /// <summary>
         /// Метод для получения учетных данных из файла
         /// </summary>
-        /// <returns>Учетные данные для гугл из "Google.Apis.Auth.OAuth2"</returns>
+        /// <returns>Учетные данные для google из "Google.Apis.Auth.OAuth2"</returns>
         private static GoogleCredential GetCredentialsFromFile()
         {
             GoogleCredential credential;
@@ -66,7 +66,7 @@ namespace PincherApp.Core.Classes
         /// <summary>
         /// Метод для преобразования объектов в наш тип данных
         /// </summary>
-        /// <param name="values">Список объектов из гугл таблицы </param>
+        /// <param name="values">Список объектов из google таблицы </param>
         /// <returns>Базовый объект который можно привести к необходимому виду</returns>
         public static List<BaseItem> MapFromRangeData(IList<IList<object>> values)
         {
@@ -79,7 +79,7 @@ namespace PincherApp.Core.Classes
                     value[1].ToString());
                 if (values[0].Count == 4)
                 {
-                    item.sitePath = value[3].ToString();
+                    item.SitePath = value[3].ToString();
                 }
                 items.Add(item);
             }

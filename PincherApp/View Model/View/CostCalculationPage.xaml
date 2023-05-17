@@ -59,7 +59,7 @@
                     </FlexLayout>
                     
                      <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" Spacing ="10">
-                        <Entry x:Name="Konversion" Text="{Binding Conversion,Mode=OneWay}" VerticalOptions="Start"  TextChanged="Konversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="5"/>
+                        <Entry x:Name="Konversion" Text="{Binding Conversion,Mode=OneWay}" VerticalOptions="Start"  TextChanged="Conversion_TextChanged" CharacterSpacing ="2" Keyboard="Numeric" MaxLength="5"/>
                             <Label Text="Не знаете конверсию?" VerticalOptions="End">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnLabelTapped"/>
