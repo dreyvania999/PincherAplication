@@ -38,22 +38,15 @@
 
 
             <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" Spacing="3">
-                <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Руководители отделов продаж">
-                    <CheckBox IsChecked="{Binding UpperManagersVisibility, Mode=TwoWay}"/>
-                    <Label Text="Старшие менеджеры"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Менеджеры совершающие звонки">
-                    <CheckBox IsChecked="{Binding LowerManagersVisibility, Mode=TwoWay}"/>
-                    <Label Text="Младшие менеджеры"/>
-                </StackLayout>
+               
                 <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Люди прослушивающие звонки за младшими менеджерами">
-                    <CheckBox IsChecked="{Binding AssesorVisibility, Mode=TwoWay}" />
+                    <CheckBox IsChecked="{Binding AssessorVisibility, Mode=TwoWay}" />
                     <Label Text="Асессоры"/>
                 </StackLayout>
             </StackLayout>
             
 
-            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="7" x:Name="UpperManagersView" IsVisible="{Binding UpperManagersVisibility}">
+            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="7" x:Name="UpperManagersView" >
                 <StackLayout >
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                         <Label Text="Количество старших менеджеров:" />
@@ -64,7 +57,7 @@
             </StackLayout>
 
 
-            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="7" x:Name="LowerManagersView" IsVisible="{Binding LowerManagersVisibility}">
+            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="7" x:Name="LowerManagersView">
                     <StackLayout >
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                             <Label Text="Количество младших менеджеров:" />
@@ -74,15 +67,16 @@
                     </StackLayout>
             </StackLayout>
 
-            <StackLayout Grid.Row="4" Grid.Column="0" Spacing="7" x:Name="AssessorView" IsVisible="{Binding AssesorVisibility}">
+            <StackLayout Grid.Row="4" Grid.Column="0" Spacing="7" x:Name="AssessorView" IsVisible="{Binding AssessorVisibility}">
                         <StackLayout >
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <Label Text="Количество младших менеджеров:" />
+                        <Label Text="Количество ассесоров:" />
                         <Label Text="{Binding CountAssessor}"  />
                     </StackLayout>
                     <Slider x:Name="AssessorSlider" Minimum="1" Maximum="30"  ValueChanged="AssesorSlider_ValueChanged"/>
                         </StackLayout>
             </StackLayout>
+
             <StackLayout Grid.Row="5" Grid.Column="0" Spacing="5" >
                 <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}"  Text="Работа в отделе крайне не оптимизированна" HorizontalOptions="CenterAndExpand" />
                 <Label x:Name="LostedTimes" Text="{Binding LostedTime}"  HorizontalOptions="CenterAndExpand" />

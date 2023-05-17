@@ -159,27 +159,11 @@ namespace PincherApp
             set
             {
                 Assessor.Visibility = value;
+                CountAssessor = 0;
                 OnPropertyChanged(nameof(AssessorVisibility));
             }
         }
-        public bool LowerManagersVisibility
-        {
-            get => LowerManager.Visibility;
-            set
-            {
-                LowerManager.Visibility = value;
-                OnPropertyChanged(nameof(LowerManagersVisibility));
-            }
-        }
-        public bool UpperManagersVisibility
-        {
-            get => UpperManager.Visibility;
-            set
-            {
-                UpperManager.Visibility = value;
-                OnPropertyChanged(nameof(UpperManagersVisibility));
-            }
-        }
+      
 
         public void UpdateWindowSize(double height, double width)
         {
