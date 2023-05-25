@@ -10,8 +10,17 @@ namespace PincherApp
         public MainPage()
         {
             InitializeComponent();
-            _model = new MainPageModel();
-            BindingContext = _model;
+            if (IsInternetConnected())
+            {
+                _model = new MainPageModel();
+                BindingContext = _model;
+            }
+            else
+            {
+                CallAlert();
+            }
+            
+            
             //Добавление команды для набора телефона 
             Call.GestureRecognizers.Add(new TapGestureRecognizer
             {
@@ -35,7 +44,21 @@ namespace PincherApp
 
         }
 
+        private async void CallAlert()
+        {
+           await ShowErrorMessageAndQuit();
+        }
 
+        public async Task ShowErrorMessageAndQuit()
+        {
+            await Application.Current.MainPage.DisplayAlert("Ошибка", "Нет подключения к интернету. Пожалуйста, попробуйте подключиться к интернету и войдите снова.", "Ок");
+            App.Current.Quit();
+        }
+        public bool IsInternetConnected()
+        {
+            var current = Connectivity.NetworkAccess;
+            return current == NetworkAccess.Internet;
+        }
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             _model.UpdateWindowSize(LowerManagers.Window.Height/2, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж

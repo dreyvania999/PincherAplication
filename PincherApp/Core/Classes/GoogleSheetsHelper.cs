@@ -24,7 +24,8 @@ namespace PincherApp.Core.Classes
             }
             catch (Exception)
             {
-               //дописать сообщение дл пользователя
+               MainPage main = new MainPage();
+                main.DisplayAlert("Ошибка", "нет подключения к интернету, попробуйте подключиться к интернету и войти снова", "Ок");
                 throw;
             }
             

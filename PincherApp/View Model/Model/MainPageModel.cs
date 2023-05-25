@@ -76,12 +76,14 @@ namespace PincherApp
 
         public MainPageModel()
         {
-            _windowSize = new SizeInform();
-            LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
-            UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
-            Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
-            LowerManager.Count = 1;
-            UpperManager.Count = 1;
+
+                _windowSize = new SizeInform();
+                LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
+                UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
+                Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
+                LowerManager.Count = 1;
+                UpperManager.Count = 1;
+           
         }
 
         public int CountLowerManagers
