@@ -28,7 +28,6 @@ Global
 		{0B1F0931-10D9-4D9D-9609-C9473DEA6B35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B1F0931-10D9-4D9D-9609-C9473DEA6B35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B1F0931-10D9-4D9D-9609-C9473DEA6B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B1F0931-10D9-4D9D-9609-C9473DEA6B35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

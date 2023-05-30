@@ -27,11 +27,11 @@
                                    HeightRequest="128"
                                    WidthRequest="128" />
 
-                                <Label Grid.Column="1"
+                                <Label Grid.Column="1 " Margin="3,3,3,3"
                                    Text="{Binding Title}"
                                    FontAttributes="Bold" />
 
-                                <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                                <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="3,3,3,3">
                                     <Label 
                                        Text="{Binding Description}"
                                        FontAttributes="Italic"

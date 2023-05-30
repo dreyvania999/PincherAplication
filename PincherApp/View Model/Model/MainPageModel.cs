@@ -80,7 +80,7 @@ namespace PincherApp
                 _windowSize = new SizeInform();
                 LowerManager = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
                 UpperManager = new ManagerInorm(BaseProgrammInform.UpperManagerImagePath);
-                Assessor = new ManagerInorm(BaseProgrammInform.LoverManagerImagePath);
+                Assessor = new ManagerInorm(BaseProgrammInform.AsessorImagePath);
                 LowerManager.Count = 1;
                 UpperManager.Count = 1;
            

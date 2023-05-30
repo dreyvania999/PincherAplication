@@ -58,6 +58,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Resources\Images\asessor.png" />
 		<None Remove="Resources\Images\icon.svg" />
 		<None Remove="Resources\Images\lowermanager.png" />
 		<None Remove="Resources\Images\uppermanager.png" />
@@ -69,11 +70,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\asessor.png" />
 	  <MauiImage Remove="Resources\Images\lowermanager.png" />
 	  <MauiImage Remove="Resources\Images\uppermanager.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\asessor.png" />
 	  <EmbeddedResource Include="Resources\Images\lowermanager.png" />
 	  <EmbeddedResource Include="Resources\Images\uppermanager.png" />
 	</ItemGroup>
