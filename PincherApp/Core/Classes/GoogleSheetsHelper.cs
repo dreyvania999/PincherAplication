@@ -3,9 +3,6 @@ using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using PincherApp.Core.StaticClasses;
-using PincherApp.Core.Classes;
-using PincherApp.Core.StaticClasses;
-using CommunityToolkit.Maui.Core;
 
 namespace PincherApp.Core.Classes
 {
@@ -24,11 +21,11 @@ namespace PincherApp.Core.Classes
             }
             catch (Exception)
             {
-               MainPage main = new MainPage();
+                MainPage main = new MainPage();
                 main.DisplayAlert("Ошибка", "нет подключения к интернету, попробуйте подключиться к интернету и войти снова", "Ок");
                 throw;
             }
-            
+
         }
 
         /// <summary>

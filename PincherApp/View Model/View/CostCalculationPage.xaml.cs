@@ -242,7 +242,7 @@ public partial class CostCalculationPage : ContentPage
 
         StackLayout stackLayout = new()
         {
-            Background = Color.FromRgba(0, 0, 0, 0),
+            Background = Color.FromRgba("#000000"),
             Padding = new Thickness(20),
             Children = { label1, entry1, label2, entry2, button }
         };
@@ -298,7 +298,7 @@ public partial class CostCalculationPage : ContentPage
 
         StackLayout stackLayout = new()
         {
-            Background = Color.FromRgba(0, 0, 0, 0),
+            Background = Color.FromRgba("#000000"),
             Padding = new Thickness(20),
             Children = { label1, entry1, button }
         };

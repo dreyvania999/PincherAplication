@@ -7,6 +7,8 @@ namespace PincherApp
     {
         private readonly MainPageModel _model;
 
+        public delegate void MyDelegate();
+
         public MainPage()
         {
             InitializeComponent();
@@ -19,8 +21,6 @@ namespace PincherApp
             {
                 CallAlert();
             }
-            
-            
             //Добавление команды для набора телефона 
             Call.GestureRecognizers.Add(new TapGestureRecognizer
             {
@@ -28,8 +28,8 @@ namespace PincherApp
                 {
                     //проверка возможности ввода номера телефона на разных устройствах
 #if WINDOWS || MACCATALYST
-                    DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
-                    Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
+            DisplayAlert("Alert", "К сожалению нет возможности получить доступ к телефону, но он скопирован в ваш буфер обмена", "OK");
+            Clipboard.SetTextAsync(BaseProgrammInform.CompanyPhone);
 #endif
                     if (PhoneDialer.Default.IsSupported)
                     {
@@ -41,12 +41,12 @@ namespace PincherApp
                     }
                 })
             });
-
         }
 
+       
         private async void CallAlert()
         {
-           await ShowErrorMessageAndQuit();
+            await ShowErrorMessageAndQuit();
         }
 
         public async Task ShowErrorMessageAndQuit()
@@ -61,14 +61,14 @@ namespace PincherApp
         }
         private void LowerManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdateWindowSize(LowerManagers.Window.Height/2, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
+            _model.UpdateWindowSize(LowerManagers.Window.Height / 2, LowerManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountLowerManagers = (int)Math.Round(e.NewValue);
             SetPhoto(LowerManagers, _model.LowerManager);
         }
 
         private void UpperManagerSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            _model.UpdateWindowSize(UpperManagers.Window.Height/2, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
+            _model.UpdateWindowSize(UpperManagers.Window.Height / 2, UpperManagers.Window.Width);//Нужно переписать на делегат срабатывающий после майн пейдж
             _model.CountUpperManagers = (int)Math.Round(e.NewValue);
             SetPhoto(UpperManagers, _model.UpperManager);
         }
@@ -121,6 +121,6 @@ namespace PincherApp
             SetPhoto(Assesor, _model.Assessor);
         }
 
-
+       
     }
 }

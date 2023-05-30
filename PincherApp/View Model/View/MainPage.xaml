@@ -40,8 +40,8 @@
             <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" Spacing="3">
                
                 <StackLayout Orientation="Horizontal" Spacing="2" ToolTipProperties.Text="Люди прослушивающие звонки за младшими менеджерами">
-                    <CheckBox IsChecked="{Binding AssessorVisibility, Mode=TwoWay}" />
-                    <Label Text="Асессоры"/>
+                    <CheckBox IsChecked="{Binding AssessorVisibility, Mode=TwoWay}"  VerticalOptions="Center"/>
+                    <Label Text="Асессоры" VerticalOptions="Center"/>
                 </StackLayout>
             </StackLayout>
 
@@ -78,23 +78,25 @@
             </StackLayout>
 
             <StackLayout Grid.Row="5" Grid.Column="0" Spacing="5" >
-                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}"  Text="Работа в отделе крайне не оптимизированна" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="OptimizationMessage" IsVisible="{Binding Optimization}"  Text="Идеальная схема отдела продаж выглятид как пирамида уменьшающаяся не более чем на 3 каждую ступень, оцените на сколько это похоже в вашем случае" HorizontalOptions="CenterAndExpand" />
                 <Label x:Name="LostedTimes" Text="{Binding LostedTime}"  HorizontalOptions="CenterAndExpand" />
                 <Button x:Name="SeeMoreButton" MinimumWidthRequest="250" Text="Наши кейсы" HorizontalOptions="CenterAndExpand" Clicked="SeeMoreButton_Clicked" />
             <Button x:Name="ConsultationButton" MinimumWidthRequest="250" Text="Рассчитать прирост конверсии" HorizontalOptions="CenterAndExpand" Clicked="ConsultationButton_Clicked" />
             <Label x:Name="Call"  Text="Обратиться к нам за консультацией" InputTransparent="False" HorizontalOptions="Center" />
 </StackLayout>
-            <StackLayout Grid.Row="6" Grid.Column="0" x:Name="UpperManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
-                <!-- Картинки руководителей отдела продаж выводятся здесь -->
+            <StackLayout Grid.Row="6" Grid.Column="0" x:Name="UpperManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300"  ToolTipProperties.Text="Руководители отдела продаж" >
+                <!-- Картинки руководителей отдела продаж выводятся здесь --> 
             </StackLayout>
 
-            <StackLayout Grid.Row="7" Grid.Column="0" x:Name="LowerManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
+            <StackLayout Grid.Row="7" Grid.Column="0" x:Name="Assesor" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300"  ToolTipProperties.Text="Менеджеры выполняющие функции контроля звонков" >
+                <!-- Картинки асессоров отдела продаж выводятся здесь -->
+            </StackLayout>
+
+            <StackLayout Grid.Row="8" Grid.Column="0" x:Name="LowerManagers" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300"  ToolTipProperties.Text="Менеджеры совершающие звонки" >
                 <!-- Картинки менеджеров отдела продаж выводятся здесь -->
             </StackLayout>
 
-            <StackLayout Grid.Row="8" Grid.Column="0" x:Name="Assesor" HorizontalOptions="Center" Orientation="Horizontal" MaximumHeightRequest="300">
-                <!-- Картинки менеджеров отдела продаж выводятся здесь -->
-            </StackLayout>
+            
         </Grid>
 
     </ScrollView>
